@@ -11,16 +11,16 @@ export const Auth0Features = () => {
       icon: "https://cdn.auth0.com/blog/hello-auth0/identity-providers-logo.svg",
     },
     {
-      title: "Take a pic",
+      title: "Multi-Factor Authentication",
       description:
-        "Lets see what do you want to eat",
+        "You can require your users to provide more than one piece of identifying information when logging in. MFA delivers one-time codes to your users via SMS, voice, email, WebAuthn, and push notifications.",
       resourceUrl: "https://auth0.com/docs/multifactor-authentication",
       icon: "https://cdn.auth0.com/blog/hello-auth0/mfa-logo.svg",
     },
     {
-      title: "Compare Food",
+      title: "Attack Protection",
       description:
-        "Lets compare the ",
+        "Auth0 can detect attacks and stop malicious attempts to access your application such as blocking traffic from certain IPs and displaying CAPTCHA. Auth0 supports the principle of layered protection in security that uses a variety of signals to detect and mitigate attacks.",
       resourceUrl: "https://auth0.com/docs/attack-protection",
       icon: "https://cdn.auth0.com/blog/hello-auth0/advanced-protection-logo.svg",
     },
