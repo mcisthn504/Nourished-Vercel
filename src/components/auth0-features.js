@@ -4,7 +4,7 @@ import { Auth0Feature } from "./auth0-feature";
 export const Auth0Features = () => {
   const featuresList = [
     {
-      title: "Daily Quizz",
+      title: "Identity",
       description:
         "Are you ready for todays Daily Quizz",
       resourceUrl: "https://auth0.com/docs/connections",
