@@ -5,22 +5,19 @@ export const Auth0Features = () => {
   const featuresList = [
     {
       title: "Daily Quizz",
-      description:
-        "Are you ready for todays Daily Quizz",
+      description: "Are you ready for todays Daily Quizz",
       resourceUrl: "https://auth0.com/docs/connections",
       icon: "https://cdn.auth0.com/blog/hello-auth0/identity-providers-logo.svg",
     },
     {
       title: "Take Picture",
-      description:
-        "Lets the information of what you want to eat",
+      description: "Lets the information of what you want to eat",
       resourceUrl: "https://auth0.com/docs/multifactor-authentication",
       icon: "https://cdn.auth0.com/blog/hello-auth0/mfa-logo.svg",
     },
     {
       title: "Compare Food",
-      description:
-        "Lets compare some foods",
+      description: "Lets compare some foods",
       resourceUrl: "https://auth0.com/docs/attack-protection",
       icon: "https://cdn.auth0.com/blog/hello-auth0/advanced-protection-logo.svg",
     },
