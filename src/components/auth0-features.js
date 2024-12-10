@@ -20,17 +20,17 @@ export const Auth0Features = () => {
     {
       title: "Compare Food",
       description:
-        "Lets compare the  foods",
+        "Lets compare the ",
       resourceUrl: "https://auth0.com/docs/attack-protection",
       icon: "https://cdn.auth0.com/blog/hello-auth0/advanced-protection-logo.svg",
     },
-   /* {
+    {
       title: "Serverless Extensibility",
       description:
         "Actions are functions that allow you to customize the behavior of Auth0. Each action is bound to a specific triggering event on the Auth0 platform. Auth0 invokes the custom code of these Actions when the corresponding triggering event is produced at runtime.",
       resourceUrl: "https://auth0.com/docs/actions",
       icon: "https://cdn.auth0.com/blog/hello-auth0/private-cloud-logo.svg",
-    },*/
+    },
   ];
 
   return (
