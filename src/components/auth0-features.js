@@ -20,7 +20,7 @@ export const Auth0Features = () => {
     {
       title: "Compare Food",
       description:
-        "Lets compare the foods",
+        "Lets compare the  foods",
       resourceUrl: "https://auth0.com/docs/attack-protection",
       icon: "https://cdn.auth0.com/blog/hello-auth0/advanced-protection-logo.svg",
     },
