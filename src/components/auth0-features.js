@@ -4,14 +4,14 @@ import { Auth0Feature } from "./auth0-feature";
 export const Auth0Features = () => {
   const featuresList = [
     {
-      title: "Daily Challenge",
+      title: "Daily Challenge ",
       description: "Are you ready for your Daily Challenge?",
       resourceUrl: "https://auth0.com/docs/connections",
       icon: "https://cdn.auth0.com/blog/hello-auth0/identity-providers-logo.svg",
     },
     {
       title: "Take Picture",
-      description: "Lets the information of what you want to eat",
+      description: "Find out the nutritional values of what you are eating!",
       resourceUrl: "https://auth0.com/docs/multifactor-authentication",
       icon: "https://cdn.auth0.com/blog/hello-auth0/mfa-logo.svg",
     },
