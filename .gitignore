@@ -321,3 +321,6 @@ $RECYCLE.BIN/
 .vercel
 
 .env*.local
+
+
+package-lock.json
