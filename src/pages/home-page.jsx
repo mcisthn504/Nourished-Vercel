@@ -14,13 +14,17 @@ const HomePage = () => {
         </div>
         <div className="search-section">
           <div className="search-bar-container">
-            <i className="search-icon">🔍</i>
+            <span className="search-icon">
+              <i className="material-icons">search</i>
+            </span>
             <input
               type="text"
               className="search-bar"
               placeholder="Search food..."
             />
-            <i className="mic-icon">🎤</i>
+            <span className="mic-icon">
+              <i className="material-icons">mic</i>
+            </span>
           </div>
         </div>
       </header>

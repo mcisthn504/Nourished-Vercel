@@ -1,7 +1,8 @@
-import React, { useState } from "react";
-import { useNavigate, useLocation /*Link */ } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import "../styles/daily-challenge.css";
 
+// Import Quiz Data
 import steakImage from "../images/steak.png";
 import citrusImage from "../images/citrus.png";
 import yogurtImage from "../images/yogurt.png";
@@ -51,62 +52,41 @@ const quizData = [
   },
 ];
 
-const DailyChallenge = () => {
-  const [selectedAnswer, setSelectedAnswer] = useState(null);
-  const [showResults, setShowResults] = useState(false);
+const ExplanationPage = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
+  const [quiz, setQuiz] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
-  // Read quiz index from URL or default to 0
-  const params = new URLSearchParams(location.search);
-  const currentQuizIndex = parseInt(params.get("index")) || 0;
+  const nextQuizIndex = new URLSearchParams(location.search).get("next");
 
-  const handleAnswerSelect = (answer) => {
-    if (!showResults) {
-      setSelectedAnswer(answer);
+  useEffect(() => {
+    const selectedQuiz = quizData.find((q) => q.id === parseInt(id));
+    if (selectedQuiz) {
+      setQuiz(selectedQuiz);
     }
+  }, [id]);
+
+  const handleCloseQuiz = () => {
+    setShowModal(true);
   };
 
-  const handleConfirm = () => {
-    const currentQuiz = quizData[currentQuizIndex];
-    const isCorrect = selectedAnswer === currentQuiz.correctAnswer;
-
-    const activityLog = JSON.parse(localStorage.getItem("activityLog")) || [];
-    activityLog.push({
-      quizId: currentQuiz.id,
-      selectedAnswer,
-      isCorrect,
-      date: new Date().toISOString(),
-    });
-    localStorage.setItem("activityLog", JSON.stringify(activityLog));
-
-    setShowResults(true);
+  const confirmCloseQuiz = () => {
+    navigate("/"); // Return to home page
   };
 
   const goToNextQuiz = () => {
-    if (currentQuizIndex < quizData.length - 1) {
-      navigate(`/daily-challenge?index=${currentQuizIndex + 1}`);
-      setShowResults(false);
-      setSelectedAnswer(null);
+    if (nextQuizIndex < quizData.length) {
+      navigate(`/daily-challenge?index=${nextQuizIndex}`);
     } else {
-      alert("You've completed all quizzes!");
-      navigate("/");
+      navigate("/"); // Redirect to home if no more quizzes
     }
   };
 
-  const seeExplanation = () => {
-    navigate(
-      `/explanation/${quizData[currentQuizIndex].id}?next=${
-        currentQuizIndex + 1
-      }`
-    );
-  };
-
-  const currentQuiz = quizData[currentQuizIndex];
-
   return (
     <div className="daily-challenge">
-      {currentQuiz && (
+      {quiz && (
         <>
           <header className="header">
             <button
@@ -120,70 +100,47 @@ const DailyChallenge = () => {
           </header>
 
           <div className="quiz-progress">
-            <span>
-              QUIZ {currentQuizIndex + 1}/{quizData.length}
-            </span>
-            <div className="progress-bar">
-              <div
-                className="progress-fill"
-                style={{
-                  width: `${((currentQuizIndex + 1) / quizData.length) * 100}%`,
-                }}
-              ></div>
-            </div>
+            <span>QUIZ {quiz.id}/4</span>
           </div>
 
           <div className="quiz-image-container">
             <img
-              src={currentQuiz.image}
+              src={quiz.image}
               alt="Quiz Illustration"
               className="quiz-image"
             />
           </div>
 
-          <div className="question-container">
-            <h2 className="question-title">{currentQuiz.question}</h2>
-            <ul className="answers">
-              {currentQuiz.options.map((option, index) => (
-                <li
-                  key={index}
-                  onClick={() => handleAnswerSelect(option[0])}
-                  className={
-                    showResults
-                      ? option[0] === currentQuiz.correctAnswer
-                        ? "correct"
-                        : option[0] === selectedAnswer
-                        ? "incorrect"
-                        : ""
-                      : selectedAnswer === option[0]
-                      ? "selected"
-                      : ""
-                  }
-                >
-                  {option}
-                </li>
-              ))}
-            </ul>
+          <div className="explanation-container">
+            <h2>EXPLANATION:</h2>
+            <p>{quiz.explanation}</p>
+          </div>
 
-            <button
-              className="confirm-button"
-              onClick={handleConfirm}
-              disabled={!selectedAnswer}
-            >
-              CONFIRM
+          <div className="post-quiz-options">
+            <button onClick={handleCloseQuiz} className="cancel-btn">
+              Close Quiz
             </button>
-
-            {showResults && (
-              <div className="post-quiz-options">
-                <button onClick={seeExplanation}>See Explanation</button>
-                <button onClick={goToNextQuiz}>Skip and Next</button>
-              </div>
-            )}
+            <button onClick={goToNextQuiz}>Got It!</button>
           </div>
         </>
+      )}
+
+      {/* Modal rendered outside of quiz condition */}
+      {showModal && (
+        <div className="modal-overlay">
+          <div className="modal">
+            <p>By closing the quiz now, you will lose all your progress.</p>
+            <div className="modal-actions">
+              <button onClick={() => setShowModal(false)}>Cancel</button>
+              <button className="cancel-btn" onClick={confirmCloseQuiz}>
+                Close Quiz
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );
 };
 
-export default DailyChallenge;
+export default ExplanationPage;

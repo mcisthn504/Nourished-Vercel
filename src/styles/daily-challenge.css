@@ -51,13 +51,19 @@
 }
 
 .quiz-image-container {
-  padding: 20px;
+  width: 100%;
+  max-width: 400px;  /* Limit the image width */
+  margin: 0 auto;    /* Center the image horizontally */
+  text-align: center;
 }
 
 .quiz-image {
-  max-width: 100%;
-  border: 2px solid #ff7043;
-  border-radius: 10px;
+  width: 100%;
+  height: auto;      /* Maintain aspect ratio */
+  max-height: 250px; /* Restrict maximum height */
+  object-fit: cover; /* Crop to fit without distortion */
+  border-radius: 10px;  /* Rounded corners for aesthetics */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .question-title {
@@ -95,14 +101,48 @@
   background-color: #ffcdd2;
 }
 
+.explanation-container {
+  text-align: left;
+  margin: 20px;
+  padding: 15px;
+  border: 2px solid #ff7043;
+  border-radius: 8px;
+  background-color: #fff8e1;
+}
+
+.post-quiz-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;  /* Space between buttons */
+  margin-top: 20px;
+}
+
+.post-quiz-options button {
+  padding: 8px 20px;
+  font-size: 14px;
+  background-color: white;
+  color: #ff7043;
+  border: 2px solid #ff7043;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.post-quiz-options button:hover {
+  background-color: #ffe0b2;
+  border-color: #ff5722;
+}
+
 .confirm-button {
   padding: 12px 30px;
-  margin-top: 20px;
+  margin-top: 30px;
   background-color: #ff7043;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
 
 .confirm-button:disabled {
@@ -110,5 +150,63 @@
   cursor: not-allowed;
 }
 
+cancel-btn {
+  border-color: #d32f2f;
+  color: #d32f2f;
+}
 
-  
+.cancel-btn:hover {
+  background-color: #ffcdd2;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.back-button {
+  background-color: white;
+  color: #ff7043;
+  border: 2px solid #ff7043;
+  border-radius: 25px;
+  padding: 10px 18px;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.back-button:hover {
+  background-color: #ff7043;
+  color: white;
+}
+
+.back-button i {
+  font-size: 18px;
+}
