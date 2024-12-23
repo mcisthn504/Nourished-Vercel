@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/take-a-pic.css";
 
-import hamburgerImage from "../images/hamburger.png"; // Replace with the static hamburger image path
+import hamburgerImage from "../images/hamburger.png"; // Replace with the actual static image path
 
 const TakeAPic = () => {
   const navigate = useNavigate();
@@ -21,7 +21,6 @@ const TakeAPic = () => {
       <header className="header">
         <button className="back-button" onClick={goBackToHomepage}>
           <i className="material-icons">arrow_back</i>
-          Back
         </button>
         <h1>Take a Pic</h1>
       </header>
