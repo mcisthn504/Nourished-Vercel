@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/home-page";
 import DailyChallenge from "./pages/daily-challenge";
 import ExplanationPage from "./pages/explanation";
+import TakePicturePage from "./pages/take-a-pic";
 import Layout from "./pages/layout";
 
 // Placeholder Components
@@ -43,7 +44,7 @@ const App = () => {
           path="/camera"
           element={
             <Layout>
-              <Camera />
+              <TakePicturePage />
             </Layout>
           }
         />

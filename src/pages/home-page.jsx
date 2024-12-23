@@ -54,10 +54,12 @@ const HomePage = () => {
           </Link>
         </div>
         <div className="card">
-          <h3>Take a Pic</h3>
-          <div className="card-content">
-            <img src={TakeAPicImage} alt="Take a Pic" />
-          </div>
+          <Link to="/camera">
+            <h3>Take a Pic</h3>
+            <div className="card-content">
+              <img src={TakeAPicImage} alt="Take a Pic" />
+            </div>
+          </Link>
         </div>
         <div className="card">
           <h3>Compare</h3>
