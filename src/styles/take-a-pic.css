@@ -2,7 +2,6 @@
 .take-a-pic-page {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: space-between;
   height: 100vh;
   background-color: #fffbea;
@@ -42,19 +41,58 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 40px;
 }
 
 .camera-view {
-  width: 150%;
+  width: 90%;
   max-width: 500px;
-  height: 90%;
+  height: auto;
   border: 5px solid #ff9933;
   border-radius: 15px;
-  object-fit: cover;
 }
 
-/* Capture button */
+/* Action buttons container */
+.action-buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  width: 100%;
+  background-color: #fffbea;
+}
+
+/* Secondary button styling */
+.secondary-button {
+  background-color: #fff;
+  border: 2px solid #ff9933;
+  color: #ff9933;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondary-button:hover {
+  background-color: #ffe5cc;
+}
+
+/* Primary button styling */
+.primary-button {
+  background-color: #ff9933;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.primary-button:hover {
+  background-color: #ff7f00;
+}
+
+/* Capture button styling */
 .capture-button {
   width: 70px;
   height: 70px;
@@ -65,7 +103,6 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-bottom: 40px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 

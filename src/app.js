@@ -4,6 +4,7 @@ import HomePage from "./pages/home-page";
 import DailyChallenge from "./pages/daily-challenge";
 import ExplanationPage from "./pages/explanation";
 import TakePicturePage from "./pages/take-a-pic";
+import HamburgerPage from "./pages/hamburger-info";
 import Layout from "./pages/layout";
 
 // Placeholder Components
@@ -69,6 +70,14 @@ const App = () => {
           element={
             <Layout>
               <ActivityLog />
+            </Layout>
+          }
+        />
+        <Route
+          path="/hamburger"
+          element={
+            <Layout>
+              <HamburgerPage />
             </Layout>
           }
         />

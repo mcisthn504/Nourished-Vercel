@@ -1,18 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/take-a-pic.css";
 
-import hamburgerImage from "../images/hamburger.png"; // Replace with the actual static image path
+import hamburgerImage from "../images/hamburger.jpg";
+import cameraPlaceholder from "../images/camera_placeholder.jpg";
 
 const TakeAPic = () => {
   const navigate = useNavigate();
+  const [isPictureTaken, setIsPictureTaken] = useState(false);
 
   const goBackToHomepage = () => {
     navigate("/");
   };
 
-  const goToHamburgerPage = () => {
-    navigate("/hamburger-page"); // Replace with the actual route of the hamburger page
+  const takePicture = () => {
+    setIsPictureTaken(true);
+  };
+
+  const takeAnotherPicture = () => {
+    setIsPictureTaken(false);
+  };
+
+  const analyzePicture = () => {
+    navigate("/hamburger");
   };
 
   return (
@@ -27,17 +37,39 @@ const TakeAPic = () => {
 
       {/* Camera Placeholder */}
       <div className="camera-container">
-        <img
-          src={hamburgerImage}
-          alt="Static Hamburger"
-          className="camera-view"
-        />
+        {isPictureTaken && (
+          <img
+            src={hamburgerImage}
+            alt="Static Hamburger"
+            className="camera-view"
+          />
+        )}
+        {!isPictureTaken && (
+          <img
+            src={cameraPlaceholder}
+            alt="Working Camera"
+            className="camera-view"
+          />
+        )}
       </div>
 
-      {/* Capture Button */}
-      <button className="capture-button" onClick={goToHamburgerPage}>
-        <i className="material-icons">camera</i>
-      </button>
+      {/* Buttons */}
+      <div className="action-buttons">
+        {!isPictureTaken ? (
+          <button className="capture-button" onClick={takePicture}>
+            <i className="material-icons">camera</i>
+          </button>
+        ) : (
+          <>
+            <button className="secondary-button" onClick={takeAnotherPicture}>
+              Take Another Picture
+            </button>
+            <button className="primary-button" onClick={analyzePicture}>
+              Analyze
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 };
