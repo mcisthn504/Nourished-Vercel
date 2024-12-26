@@ -1,18 +1,23 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/hamburger-info.css";
 
 import hamburgerImage from "../images/hamburger.jpg";
 
 const HamburgerPage = () => {
   const navigate = useNavigate();
+  const { favorites, toggleFavorite } = useFavorites(); // Use the context
+
+  // Check if the hamburger is marked as favorite
+  const isFavorite = favorites.includes("hamburger");
 
   const goBackToHomePage = () => {
     navigate("/");
   };
 
-  const saveAsFavorite = () => {
-    alert("Hamburger saved as favorite!");
+  const handleFavoriteClick = () => {
+    toggleFavorite("hamburger"); // Toggle the favorite status for "hamburger"
   };
 
   return (
@@ -23,8 +28,13 @@ const HamburgerPage = () => {
           <i className="material-icons">arrow_back</i>
         </button>
         <h1 className="title">Information</h1>
-        <button className="favorite-button" onClick={saveAsFavorite}>
-          <i className="material-icons">favorite</i>
+        <button
+          className={`favorite-button ${isFavorite ? "active" : ""}`}
+          onClick={handleFavoriteClick}
+        >
+          <i className="material-icons">
+            {isFavorite ? "favorite" : "favorite_border"}
+          </i>
         </button>
       </header>
 

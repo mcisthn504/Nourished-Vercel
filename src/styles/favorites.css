@@ -1,0 +1,88 @@
+/* Main page layout */
+.favorites-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #fffbea;
+  overflow-y: auto;
+}
+
+/* Header styling */
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #ffcc99;
+  color: #000;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Favorites list container */
+.favorites-list {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Favorite item styling */
+.favorite-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 2px solid #ff9933;
+  border-radius: 10px;
+  width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.favorite-image {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.favorite-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff9933;
+}
+
+.remove-favorite-button {
+  background-color: #ff9999;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.remove-favorite-button:hover {
+  background-color: #ff4d4d;
+}
