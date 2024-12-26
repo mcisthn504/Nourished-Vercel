@@ -7,6 +7,7 @@ import TakePicturePage from "./pages/take-a-pic";
 import HamburgerPage from "./pages/hamburger";
 import PizzaPage from "./pages/pizza";
 import Layout from "./pages/layout";
+import CategoriesPage from "./pages/categories";
 import ProfilePage from "./pages/profile";
 import FavoritesPage from "./pages/favorites";
 import { FavoritesProvider } from "./contexts/FavoritesContext";
@@ -90,6 +91,14 @@ const App = () => {
             element={
               <Layout>
                 <PizzaPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/categories"
+            element={
+              <Layout>
+                <CategoriesPage />
               </Layout>
             }
           />

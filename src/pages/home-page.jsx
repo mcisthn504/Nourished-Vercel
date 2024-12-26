@@ -39,9 +39,10 @@ const HomePage = () => {
       <div className="categories">
         <div className="categories-header">
           <h2>Categories</h2>
-          <a href="#" className="see-all-link">
+          {/* Use Link here to navigate to /categories */}
+          <Link to="/categories" className="see-all-link">
             See all
-          </a>
+          </Link>
         </div>
         <div className="category-tags">
           <span className="tag">Seconds</span>
