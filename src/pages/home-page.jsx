@@ -1,11 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
 import "../styles/home-page.css";
 import DailyChallengeImage from "../images/daily-challenge.png";
 import TakeAPicImage from "../images/take-a-pic.png";
 import CompareImage from "../images/compare.png";
 
 const HomePage = () => {
+  const navigate = useNavigate(); // Initialize navigate hook
+
+  const handleSearchClick = () => {
+    // Navigate to /pizza when the search button is clicked
+    navigate("/pizza");
+  };
+
   return (
     <div className="homepage">
       <header className="header">
@@ -14,7 +21,7 @@ const HomePage = () => {
         </div>
         <div className="search-section">
           <div className="search-bar-container">
-            <span className="search-icon">
+            <span className="search-icon" onClick={handleSearchClick}>
               <i className="material-icons">search</i>
             </span>
             <input

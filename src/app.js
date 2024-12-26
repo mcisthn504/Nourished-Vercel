@@ -4,7 +4,8 @@ import HomePage from "./pages/home-page";
 import DailyChallenge from "./pages/daily-challenge";
 import ExplanationPage from "./pages/explanation";
 import TakePicturePage from "./pages/take-a-pic";
-import HamburgerPage from "./pages/hamburger-info";
+import HamburgerPage from "./pages/hamburger";
+import PizzaPage from "./pages/pizza";
 import Layout from "./pages/layout";
 import ProfilePage from "./pages/profile";
 import FavoritesPage from "./pages/favorites";
@@ -81,6 +82,14 @@ const App = () => {
             element={
               <Layout>
                 <HamburgerPage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/pizza"
+            element={
+              <Layout>
+                <PizzaPage />
               </Layout>
             }
           />

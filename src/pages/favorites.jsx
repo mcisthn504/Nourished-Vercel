@@ -3,7 +3,10 @@ import { useNavigate } from "react-router-dom";
 import "../styles/favorites.css";
 
 import { useFavorites } from "../contexts/FavoritesContext"; // Import context
+
+// Images for the favorite items
 import hamburgerImage from "../images/hamburger.jpg";
+import pizzaImage from "../images/pizza.jpg"; // Add the path to your pizza image
 
 const FavoritesPage = () => {
   const navigate = useNavigate();
@@ -15,6 +18,10 @@ const FavoritesPage = () => {
 
   const goToHamburgerPage = () => {
     navigate("/hamburger");
+  };
+
+  const goToPizzaPage = () => {
+    navigate("/pizza");
   };
 
   return (
@@ -35,12 +42,16 @@ const FavoritesPage = () => {
           favorites.map((item) => (
             <div className="favorite-item" key={item}>
               <img
-                src={hamburgerImage}
+                src={item === "hamburger" ? hamburgerImage : pizzaImage} // Show appropriate image based on favorite item
                 alt={item}
                 className="favorite-image"
-                onClick={goToHamburgerPage}
+                onClick={
+                  item === "hamburger" ? goToHamburgerPage : goToPizzaPage
+                } // Navigate to the right page
               />
-              <h2 className="favorite-name">{item}</h2>
+              <h2 className="favorite-name">
+                {item.charAt(0).toUpperCase() + item.slice(1)}
+              </h2>
               <button
                 className="remove-favorite-button"
                 onClick={() => removeFavorite(item)}
