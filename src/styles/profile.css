@@ -1,0 +1,68 @@
+/* Main page layout */
+.profile-info-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #fffbea;
+}
+
+/* Header styling */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffcc99;
+  color: #000;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Profile picture placeholder styling */
+.profile-container {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  padding-left: 20px; /* Add left padding to move the picture to the right */
+}
+
+.profile-picture-placeholder {
+  width: 60px;
+  height: 60px;
+  background-color: #add8e6; /* Light blue color */
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.profile-name {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ff9933;
+}
+
+/* Info list styling */
+.info-list {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.info-row {
+  margin-bottom: 15px;
+}
+
+.info-row h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff9933;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.info-row p {
+  font-size: 16px;
+  color: #333;
+  margin: 5px 0 0 0;
+}

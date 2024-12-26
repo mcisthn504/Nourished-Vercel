@@ -6,11 +6,11 @@ import ExplanationPage from "./pages/explanation";
 import TakePicturePage from "./pages/take-a-pic";
 import HamburgerPage from "./pages/hamburger-info";
 import Layout from "./pages/layout";
+import ProfilePage from "./pages/profile";
 import FavoritesPage from "./pages/favorites";
 import { FavoritesProvider } from "./contexts/FavoritesContext";
 
 // Placeholder Components
-const Profile = () => <h2>Profile Page</h2>;
 const ActivityLog = () => <h2>Activity Log Page</h2>;
 
 const App = () => {
@@ -64,7 +64,7 @@ const App = () => {
             path="/profile"
             element={
               <Layout>
-                <Profile />
+                <ProfilePage />
               </Layout>
             }
           />
