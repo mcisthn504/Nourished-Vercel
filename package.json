@@ -23,8 +23,7 @@
       "react-app",
       "react-app/jest",
       "eslint:recommended",
-      "plugin:react/recommended",
-      "plugin:prettier/recommended"
+      "plugin:react/recommended"
     ],
     "rules": {
       "react/prop-types": 0
