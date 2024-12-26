@@ -4,6 +4,7 @@ import HomePage from "./pages/home-page";
 import DailyChallenge from "./pages/daily-challenge";
 import ExplanationPage from "./pages/explanation";
 import TakePicturePage from "./pages/take-a-pic";
+import ComparePage from "./pages/compare";
 import HamburgerPage from "./pages/hamburger";
 import PizzaPage from "./pages/pizza";
 import Layout from "./pages/layout";
@@ -51,6 +52,14 @@ const App = () => {
             element={
               <Layout>
                 <TakePicturePage />
+              </Layout>
+            }
+          />
+          <Route
+            path="/compare"
+            element={
+              <Layout>
+                <ComparePage />
               </Layout>
             }
           />

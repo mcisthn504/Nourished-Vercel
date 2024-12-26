@@ -1,0 +1,104 @@
+/* General Layout */
+.compare-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #fff5e1;
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  background-color: #ff7043;
+  color: white;
+  padding: 10px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Main Section */
+.compare-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Triangles */
+.triangle-container {
+  position: relative;
+  width: 150px;
+  height: 200px;
+}
+
+.left-triangle::before,
+.right-triangle::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.left-triangle::before {
+  border-width: 400px 300px 0 0;
+  border-color: #ff7043 transparent transparent transparent;
+  top: -150px;
+  left: -25px;
+}
+
+.right-triangle::before {
+  border-width: 0 0 400px 300px;
+  border-color: transparent transparent #ff7043 transparent;
+  top: -150px;
+  left: -125px;
+}
+
+/* Buttons */
+.button-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.button i {
+  margin-right: 5px;
+}
+
+.button:hover {
+  background-color: #388e3c;
+}

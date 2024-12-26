@@ -70,10 +70,12 @@ const HomePage = () => {
           </Link>
         </div>
         <div className="card">
-          <h3>Compare</h3>
-          <div className="card-content">
-            <img src={CompareImage} alt="Compare" />
-          </div>
+          <Link to="/compare">
+            <h3>Compare</h3>
+            <div className="card-content">
+              <img src={CompareImage} alt="Compare" />
+            </div>
+          </Link>
         </div>
       </section>
 
