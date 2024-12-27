@@ -60,25 +60,36 @@
   border-width: 400px 300px 0 0;
   border-color: #ff7043 transparent transparent transparent;
   top: -150px;
-  left: -25px;
+  left: -10px; /* Reduced from -25px */
 }
 
 .right-triangle::before {
   border-width: 0 0 400px 300px;
   border-color: transparent transparent #ff7043 transparent;
   top: -150px;
-  left: -125px;
+  left: -150px; /* Reduced from -125px */
 }
 
 /* Buttons */
-.button-container {
+.button-container-right {
   position: absolute;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  top: 50%;
+  top: 70%;
   left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.button-container-left {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  top: -30%;
+  left: 70%;
   transform: translate(-50%, -50%);
 }
 
@@ -90,7 +101,7 @@
   color: white;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 15px 30px; /* Increased padding for a wider button */
   font-size: 14px;
   cursor: pointer;
 }
@@ -102,3 +113,23 @@
 .button:hover {
   background-color: #388e3c;
 }
+
+.vs-circle {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  background-color: #b32222;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 10; /* To ensure it appears above other elements */
+}
+
