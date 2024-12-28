@@ -12,107 +12,116 @@ import CategoriesPage from "./pages/categories";
 import ProfilePage from "./pages/profile";
 import FavoritesPage from "./pages/favorites";
 import { FavoritesProvider } from "./contexts/FavoritesContext";
+import { PhotoProvider } from "./contexts/photoContext"; // Add this
+import TakeAPicCompare from "./pages/take-a-pic-compare.jsx";
 
-// Placeholder Components
 const ActivityLog = () => <h2>Activity Log Page</h2>;
 
 const App = () => {
   return (
     <FavoritesProvider>
-      {" "}
-      {/* Wraps the Router */}
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Layout>
-                <HomePage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/daily-challenge"
-            element={
-              <Layout>
-                <DailyChallenge />
-              </Layout>
-            }
-          />
-          <Route
-            path="/explanation/:id"
-            element={
-              <Layout>
-                <ExplanationPage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/camera"
-            element={
-              <Layout>
-                <TakePicturePage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/compare"
-            element={
-              <Layout>
-                <ComparePage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/favorites"
-            element={
-              <Layout>
-                <FavoritesPage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/profile"
-            element={
-              <Layout>
-                <ProfilePage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/activity-log"
-            element={
-              <Layout>
-                <ActivityLog />
-              </Layout>
-            }
-          />
-          <Route
-            path="/hamburger"
-            element={
-              <Layout>
-                <HamburgerPage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/pizza"
-            element={
-              <Layout>
-                <PizzaPage />
-              </Layout>
-            }
-          />
-          <Route
-            path="/categories"
-            element={
-              <Layout>
-                <CategoriesPage />
-              </Layout>
-            }
-          />
-        </Routes>
-      </Router>
+      <PhotoProvider> {/* Wrap the entire app */}
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Layout>
+                  <HomePage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/daily-challenge"
+              element={
+                <Layout>
+                  <DailyChallenge />
+                </Layout>
+              }
+            />
+            <Route
+              path="/compare/take-a-pic-compare"
+              element={
+                <Layout>
+                  <TakeAPicCompare />
+                </Layout>
+              }
+            />
+            <Route
+              path="/explanation/:id"
+              element={
+                <Layout>
+                  <ExplanationPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/camera"
+              element={
+                <Layout>
+                  <TakePicturePage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/compare"
+              element={
+                <Layout>
+                  <ComparePage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/favorites"
+              element={
+                <Layout>
+                  <FavoritesPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <Layout>
+                  <ProfilePage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/activity-log"
+              element={
+                <Layout>
+                  <ActivityLog />
+                </Layout>
+              }
+            />
+            <Route
+              path="/hamburger"
+              element={
+                <Layout>
+                  <HamburgerPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/pizza"
+              element={
+                <Layout>
+                  <PizzaPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/categories"
+              element={
+                <Layout>
+                  <CategoriesPage />
+                </Layout>
+              }
+            />
+          </Routes>
+        </Router>
+      </PhotoProvider>
     </FavoritesProvider>
   );
 };

@@ -1,24 +1,63 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/take-a-pic.css";
-
-import hamburgerImage from "../images/hamburger.jpg";
-import cameraPlaceholder from "../images/camera_placeholder.jpg";
 
 const TakeAPic = () => {
   const navigate = useNavigate();
   const [isPictureTaken, setIsPictureTaken] = useState(false);
+  const [photo, setPhoto] = useState(null);
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
 
-  const goBackToHomepage = () => {
-    navigate("/");
-  };
+  useEffect(() => {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); // Check if the device is mobile
+
+    if (!isPictureTaken) {
+      // Access the camera based on the device type
+      navigator.mediaDevices
+        .getUserMedia({
+          video: {
+            facingMode: isMobile
+              ? { exact: "environment" } // Use rear camera on mobile
+              : "user", // Use front camera on desktop
+          },
+        })
+        .then((stream) => {
+          if (videoRef.current) {
+            videoRef.current.srcObject = stream;
+          }
+        })
+        .catch((err) => {
+          console.error("Error accessing the camera: ", err);
+          alert(
+            "Unable to access the camera. Please check your browser settings."
+          );
+        });
+    } else {
+      // Stop the camera when a picture is taken
+      if (videoRef.current && videoRef.current.srcObject) {
+        const stream = videoRef.current.srcObject;
+        const tracks = stream.getTracks();
+        tracks.forEach((track) => track.stop());
+      }
+    }
+  }, [isPictureTaken]);
 
   const takePicture = () => {
-    setIsPictureTaken(true);
+    const canvas = canvasRef.current;
+    const video = videoRef.current;
+    if (canvas && video) {
+      const context = canvas.getContext("2d");
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const imageData = canvas.toDataURL("image/png");
+      setPhoto(imageData);
+      setIsPictureTaken(true);
+    }
   };
 
   const takeAnotherPicture = () => {
     setIsPictureTaken(false);
+    setPhoto(null);
   };
 
   const analyzePicture = () => {
@@ -29,28 +68,20 @@ const TakeAPic = () => {
     <div className="take-a-pic-page">
       {/* Header */}
       <header className="header">
-        <button className="back-button" onClick={goBackToHomepage}>
+        <button className="back-button" onClick={() => navigate("/")}>
           <i className="material-icons">arrow_back</i>
         </button>
         <h1>Take a Pic</h1>
       </header>
 
-      {/* Camera Placeholder */}
+      {/* Camera Container */}
       <div className="camera-container">
-        {isPictureTaken && (
-          <img
-            src={hamburgerImage}
-            alt="Static Hamburger"
-            className="camera-view"
-          />
+        {!isPictureTaken ? (
+          <video ref={videoRef} autoPlay className="camera-view"></video>
+        ) : (
+          <img src={photo} alt="Captured" className="camera-view" />
         )}
-        {!isPictureTaken && (
-          <img
-            src={cameraPlaceholder}
-            alt="Working Camera"
-            className="camera-view"
-          />
-        )}
+        <canvas ref={canvasRef} style={{ display: "none" }} width="640" height="480"></canvas>
       </div>
 
       {/* Buttons */}
@@ -75,3 +106,4 @@ const TakeAPic = () => {
 };
 
 export default TakeAPic;
+
