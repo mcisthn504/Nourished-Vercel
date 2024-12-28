@@ -5,7 +5,7 @@ import "../styles/compare.css";
 
 const Compare = () => {
   const navigate = useNavigate();
-  const { leftPhoto, setLeftPhoto, rightPhoto, setRightPhoto } = usePhotoContext();
+  const { leftPhoto, rightPhoto } = usePhotoContext();
 
   const handleTakePicture = (side) => {
     navigate("/compare/take-a-pic-compare", { state: { side } });
