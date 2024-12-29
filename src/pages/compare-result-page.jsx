@@ -1,12 +1,12 @@
 import React from "react";
-import { usePhotoContext } from "../contexts/photoContext"; // Import the context
 import "../styles/compare-result.css";
 
+import hamburgerImage from "../images/hamburger.jpg"; // Hamburger image
+import pizzaImage from "../images/pizza.jpg"; // Pizza image
 
 const CompareResultPage = () => {
-  const { leftPhoto, rightPhoto } = usePhotoContext(); // Use the photo context
 
-  // Example static data for meals; replace with actual data
+  // Example data for meals
   const leftMealInfo = {
     name: "Hamburger",
     ingredients: "Bun, Patty, Lettuce, Tomato, Cheese",
@@ -16,6 +16,7 @@ const CompareResultPage = () => {
     sodium: "500mg",
     history:
       "The hamburger originated in the late 19th or early 20th century, evolving from minced meat dishes popular in Hamburg, Germany.",
+    image: hamburgerImage, // Use the hamburger image
   };
 
   const rightMealInfo = {
@@ -27,6 +28,7 @@ const CompareResultPage = () => {
     sodium: "600mg",
     history:
       "Pizza originated in Italy as a simple flatbread with toppings and became globally popular over time.",
+    image: pizzaImage, // Use the pizza image
   };
 
   return (
@@ -40,7 +42,7 @@ const CompareResultPage = () => {
       <div className="compare-container">
         {/* Left Meal */}
         <div className="meal-card">
-          <img src={leftPhoto} alt="Left Meal" className="meal-image" />
+          <img src={leftMealInfo.image} alt="Left Meal" className="meal-image" />
           <h2>{leftMealInfo.name}</h2>
           <div className="meal-info">
             <p><strong>Ingredients:</strong> {leftMealInfo.ingredients}</p>
@@ -54,7 +56,7 @@ const CompareResultPage = () => {
 
         {/* Right Meal */}
         <div className="meal-card">
-          <img src={rightPhoto} alt="Right Meal" className="meal-image" />
+          <img src={rightMealInfo.image} alt="Right Meal" className="meal-image" />
           <h2>{rightMealInfo.name}</h2>
           <div className="meal-info">
             <p><strong>Ingredients:</strong> {rightMealInfo.ingredients}</p>
