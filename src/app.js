@@ -5,6 +5,7 @@ import DailyChallenge from "./pages/daily-challenge";
 import ExplanationPage from "./pages/explanation";
 import TakePicturePage from "./pages/take-a-pic";
 import ComparePage from "./pages/compare";
+import CompareResultPage from "./pages/compare-result-page"; // Import the new page
 import HamburgerPage from "./pages/hamburger";
 import PizzaPage from "./pages/pizza";
 import Layout from "./pages/layout";
@@ -55,6 +56,14 @@ const App = () => {
                 </Layout>
               }
             />
+            <Route
+            path="/compare/result"
+            element={
+              <Layout>
+                <CompareResultPage />
+              </Layout>
+            }
+          />
             <Route
               path="/camera"
               element={

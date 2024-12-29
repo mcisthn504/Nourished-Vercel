@@ -28,10 +28,11 @@ const Compare = () => {
       <div className="vs-circle">VS</div>
 
       {leftPhoto && rightPhoto && (
-        <button className="compare-button" onClick={() => console.log("Comparing...")}>
-          Compare
-        </button>
-      )}
+  <button className="compare-button" onClick={() => navigate("/compare/result")}>
+    Compare
+  </button>
+)}
+
     </div>
   );
 };
