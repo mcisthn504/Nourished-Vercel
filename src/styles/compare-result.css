@@ -1,50 +1,84 @@
 .compare-result-page {
-    font-family: Arial, sans-serif;
-    background-color: #fff5e1;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .header {
-    background-color: #ff7043;
-    color: white;
-    padding: 10px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  .compare-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 20px 0;
-  }
-  
-  .meal-card {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 45%;
-  }
-  
-  .meal-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .meal-info {
-    text-align: left;
-    margin-top: 15px;
-  }
-  
-  .meal-info p {
-    margin: 8px 0;
-  }
-  
-  .meal-info strong {
-    color: #ff7043;
-  }
-  
+  font-family: Arial, sans-serif;
+  background-color: #fff5e1;
+  padding: 20px;
+  text-align: center;
+}
+
+.header {
+  background-color: #ff7043;
+  color: white;
+  padding: 10px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.compare-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.meal-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 45%;
+  position: relative;
+}
+
+.meal-card.healthiest-option {
+  background-color: #e0ffe0; /* Light green background for the healthiest option */
+  border: 2px solid #4caf50; /* Green border */
+}
+
+.best-option-label {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #4caf50;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.meal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.meal-info {
+  text-align: left;
+  margin-top: 15px;
+}
+
+.meal-info p {
+  margin: 8px 0;
+}
+
+.meal-info strong {
+  color: #ff7043;
+}
+
+.explanation-section {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.explanation-section h2 {
+  color: #4caf50;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
