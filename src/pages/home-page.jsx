@@ -10,6 +10,14 @@ const HomePage = () => {
 
   const handleSearchClick = () => {
     // Navigate to /pizza when the search button is clicked
+    const activityLog = JSON.parse(localStorage.getItem("activityLog")) || [];
+    activityLog.push({
+      type: "Food Search",
+      details: `Pizza`,
+      timestamp: new Date().toLocaleString(),
+      foodResult: "Pizza", // Pass the detected food name
+    });
+    localStorage.setItem("activityLog", JSON.stringify(activityLog));
     navigate("/pizza");
   };
 
@@ -78,7 +86,6 @@ const HomePage = () => {
           </Link>
         </div>
       </section>
-
       {/* Bottom Navigation */}
       <nav className="bottom-nav">
         <Link to="/" className="active">
@@ -103,6 +110,7 @@ const HomePage = () => {
         </Link>
       </nav>
     </div>
+    
   );
 };
 

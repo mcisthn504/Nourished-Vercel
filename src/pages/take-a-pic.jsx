@@ -61,6 +61,15 @@ const TakeAPic = () => {
   };
 
   const analyzePicture = () => {
+    // Save to activity log
+    const activityLog = JSON.parse(localStorage.getItem("activityLog")) || [];
+    activityLog.push({
+      type: "Pic Analysis",
+      details: `Hamburger`,
+      timestamp: new Date().toLocaleString(),
+      foodResult: "Hamburger", // Pass the detected food name
+    });
+    localStorage.setItem("activityLog", JSON.stringify(activityLog));
     navigate("/hamburger");
   };
 
@@ -81,7 +90,12 @@ const TakeAPic = () => {
         ) : (
           <img src={photo} alt="Captured" className="camera-view" />
         )}
-        <canvas ref={canvasRef} style={{ display: "none" }} width="640" height="480"></canvas>
+        <canvas
+          ref={canvasRef}
+          style={{ display: "none" }}
+          width="640"
+          height="480"
+        ></canvas>
       </div>
 
       {/* Buttons */}
@@ -106,4 +120,3 @@ const TakeAPic = () => {
 };
 
 export default TakeAPic;
-

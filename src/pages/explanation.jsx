@@ -60,6 +60,7 @@ const ExplanationPage = () => {
   const [showModal, setShowModal] = useState(false);
 
   const nextQuizIndex = new URLSearchParams(location.search).get("next");
+  const fromReview = location.state?.fromReview || false;
 
   useEffect(() => {
     const selectedQuiz = quizData.find((q) => q.id === parseInt(id));
@@ -69,7 +70,11 @@ const ExplanationPage = () => {
   }, [id]);
 
   const handleCloseQuiz = () => {
-    setShowModal(true);
+    if (fromReview) {
+      navigate("/activity-log"); // Redirect to activity log if from review
+    } else {
+      setShowModal(true);
+    }
   };
 
   const confirmCloseQuiz = () => {
@@ -77,7 +82,9 @@ const ExplanationPage = () => {
   };
 
   const goToNextQuiz = () => {
-    if (nextQuizIndex < quizData.length) {
+    if (fromReview) {
+      navigate("/activity-log"); // Redirect to activity log if from review
+    } else if (nextQuizIndex < quizData.length) {
       navigate(`/daily-challenge?index=${nextQuizIndex}`);
     } else {
       navigate("/"); // Redirect to home if no more quizzes

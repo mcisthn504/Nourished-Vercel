@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate, useLocation /*Link */ } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "../styles/daily-challenge.css";
 
 import steakImage from "../images/steak.png";
@@ -7,6 +7,7 @@ import citrusImage from "../images/citrus.png";
 import yogurtImage from "../images/yogurt.png";
 import potatoImage from "../images/potatoes.png";
 
+// Quiz Data
 const quizData = [
   {
     id: 1,
@@ -20,7 +21,7 @@ const quizData = [
     correctAnswer: "B",
     image: steakImage,
     explanation:
-      "Beef can be safely consumed rare because most harmful bacteria, like E. coli or Salmonella, live on the surface of the meat. When the outer layer of the steak is seared, it kills off these bacteria. This is not the case for chicken. Bacteria such as Salmonella or Campylobacter can penetrate deeper into chicken meat, especially if the chicken is improperly handled or stored. Therefore, to ensure chicken is safe to eat, it must be cooked thoroughly to an internal temperature of 165°F (75°C), ensuring all harmful bacteria are destroyed throughout the meat.",
+      "Beef can be safely consumed rare because most harmful bacteria live on the surface...",
   },
   {
     id: 2,
@@ -29,7 +30,7 @@ const quizData = [
     correctAnswer: "C",
     image: citrusImage,
     explanation:
-      "Citrus fruits like oranges, lemons, limes, and grapefruits are rich in Vitamin C (ascorbic acid). Vitamin C is essential for the growth, development, and repair of body tissues. It plays a key role in immune function, helps the body absorb iron from plant-based foods, and is important for collagen production, which aids in wound healing and skin health. A deficiency in Vitamin C can lead to scurvy, a disease that causes fatigue, swollen gums, and joint pain. Consuming citrus fruits regularly ensures a sufficient intake of this crucial vitamin.",
+      "Citrus fruits like oranges are rich in Vitamin C, essential for immune function...",
   },
   {
     id: 3,
@@ -38,7 +39,7 @@ const quizData = [
     correctAnswer: "B",
     image: yogurtImage,
     explanation:
-      "Yogurt is considered a probiotic food because it contains live beneficial bacteria, such as Lactobacillus and Bifidobacterium, that promote a healthy gut microbiome. These bacteria can improve digestion, boost immune function, and may reduce symptoms of irritable bowel syndrome (IBS). Fermentation, the process by which yogurt is made, enhances the growth of these beneficial bacteria. Consuming probiotic-rich foods like yogurt helps restore the natural balance of gut bacteria, which can be disrupted by illness, antibiotics, or poor diet.",
+      "Yogurt is a probiotic containing live bacteria that promote gut health...",
   },
   {
     id: 4,
@@ -47,7 +48,7 @@ const quizData = [
     correctAnswer: "B",
     image: potatoImage,
     explanation:
-      "Potatoes are primarily composed of carbohydrates, making them an excellent source of energy. The majority of the carbohydrates in potatoes are starches, which the body breaks down into glucose to fuel its activities. Potatoes also provide important nutrients like Vitamin C, potassium, and fiber, particularly if the skin is left on. Although they are often criticized for their carbohydrate content, potatoes are a nutrient-dense food that can be part of a healthy diet when prepared without excessive butter, oil, or frying.",
+      "Potatoes are rich in carbohydrates, providing energy and essential nutrients...",
   },
 ];
 
@@ -57,32 +58,64 @@ const DailyChallenge = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Read quiz index from URL or default to 0
+  // Check if quiz is in review mode (from activity log)
+  const reviewState = location.state || null;
+
+  // Read quiz index from URL or use reviewState
   const params = new URLSearchParams(location.search);
   const currentQuizIndex = parseInt(params.get("index")) || 0;
 
+  // Load quiz based on reviewState or index
+  const [currentQuiz, setCurrentQuiz] = useState(null);
+
+  useEffect(() => {
+    // Get quiz from the data
+    const quiz = quizData.find(
+      (q) => q.id === (reviewState?.quizId || quizData[currentQuizIndex]?.id)
+    );
+
+    if (quiz) {
+      setCurrentQuiz(quiz);
+      if (reviewState) {
+        // In review mode - lock answer and show results
+        setSelectedAnswer(reviewState.selectedAnswer);
+        setShowResults(true);
+      }
+    }
+  }, [reviewState, currentQuizIndex]);
+
+  // Handle Answer Selection
   const handleAnswerSelect = (answer) => {
     if (!showResults) {
       setSelectedAnswer(answer);
     }
   };
 
+  // Handle Quiz Confirmation
   const handleConfirm = () => {
-    const currentQuiz = quizData[currentQuizIndex];
     const isCorrect = selectedAnswer === currentQuiz.correctAnswer;
 
     const activityLog = JSON.parse(localStorage.getItem("activityLog")) || [];
     activityLog.push({
-      quizId: currentQuiz.id,
-      selectedAnswer,
-      isCorrect,
-      date: new Date().toISOString(),
+      type: "Quiz",
+      details: `${
+        currentQuiz.question
+      }<br/>Your answer: ${selectedAnswer}<br/>Result: ${
+        isCorrect ? "Correct" : "Incorrect"
+      }`,
+      state: {
+        quizId: currentQuiz.id,
+        selectedAnswer: selectedAnswer,
+        isCorrect: isCorrect,
+      },
+      timestamp: new Date().toLocaleString(),
     });
     localStorage.setItem("activityLog", JSON.stringify(activityLog));
 
     setShowResults(true);
   };
 
+  // Navigation for Next Quiz
   const goToNextQuiz = () => {
     if (currentQuizIndex < quizData.length - 1) {
       navigate(`/daily-challenge?index=${currentQuizIndex + 1}`);
@@ -94,15 +127,12 @@ const DailyChallenge = () => {
     }
   };
 
+  // Navigate to Explanation
   const seeExplanation = () => {
-    navigate(
-      `/explanation/${quizData[currentQuizIndex].id}?next=${
-        currentQuizIndex + 1
-      }`
-    );
+    navigate(`/explanation/${currentQuiz.id}?next=${currentQuizIndex + 1}`, {
+      state: { fromReview: reviewState?.fromReview || false },
+    });
   };
-
-  const currentQuiz = quizData[currentQuizIndex];
 
   return (
     <div className="daily-challenge">
@@ -123,14 +153,6 @@ const DailyChallenge = () => {
             <span>
               QUIZ {currentQuizIndex + 1}/{quizData.length}
             </span>
-            <div className="progress-bar">
-              <div
-                className="progress-fill"
-                style={{
-                  width: `${((currentQuizIndex + 1) / quizData.length) * 100}%`,
-                }}
-              ></div>
-            </div>
           </div>
 
           <div className="quiz-image-container">
@@ -165,18 +187,22 @@ const DailyChallenge = () => {
               ))}
             </ul>
 
-            <button
-              className="confirm-button"
-              onClick={handleConfirm}
-              disabled={!selectedAnswer}
-            >
-              CONFIRM
-            </button>
+            {!reviewState && (
+              <button
+                className="confirm-button"
+                onClick={handleConfirm}
+                disabled={!selectedAnswer}
+              >
+                CONFIRM
+              </button>
+            )}
 
             {showResults && (
               <div className="post-quiz-options">
                 <button onClick={seeExplanation}>See Explanation</button>
-                <button onClick={goToNextQuiz}>Skip and Next</button>
+                {!reviewState && (
+                  <button onClick={goToNextQuiz}>Skip and Next</button>
+                )}
               </div>
             )}
           </div>

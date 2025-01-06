@@ -15,13 +15,16 @@ import FavoritesPage from "./pages/favorites";
 import { FavoritesProvider } from "./contexts/FavoritesContext";
 import { PhotoProvider } from "./contexts/photoContext"; // Add this
 import TakeAPicCompare from "./pages/take-a-pic-compare.jsx";
+import ActivityLog from "./pages/activity-log";
 
-const ActivityLog = () => <h2>Activity Log Page</h2>;
+//const ActivityLog = () => <h2>Activity Log Page</h2>;
 
 const App = () => {
   return (
     <FavoritesProvider>
-      <PhotoProvider> {/* Wrap the entire app */}
+      <PhotoProvider>
+        {" "}
+        {/* Wrap the entire app */}
         <Router>
           <Routes>
             <Route
@@ -57,13 +60,13 @@ const App = () => {
               }
             />
             <Route
-            path="/compare/result"
-            element={
-              <Layout>
-                <CompareResultPage />
-              </Layout>
-            }
-          />
+              path="/compare/result"
+              element={
+                <Layout>
+                  <CompareResultPage />
+                </Layout>
+              }
+            />
             <Route
               path="/camera"
               element={
@@ -101,6 +104,14 @@ const App = () => {
               element={
                 <Layout>
                   <ActivityLog />
+                </Layout>
+              }
+            />
+            <Route
+              path="/daily-challenge/:quizId"
+              element={
+                <Layout>
+                  <DailyChallenge />
                 </Layout>
               }
             />

@@ -11,6 +11,22 @@ const Compare = () => {
     navigate("/compare/take-a-pic-compare", { state: { side } });
   };
 
+  const handleCompare = () => {
+    const leftFood = "Hamburger"; // Mock left food item
+    const rightFood = "Pizza"; // Mock right food item
+
+    const activityLog = JSON.parse(localStorage.getItem("activityLog")) || [];
+    activityLog.push({
+      type: "Comparison",
+      details: `${leftFood} vs ${rightFood}`,
+      timestamp: new Date().toLocaleString(),
+      comparisonResult: { left: leftFood, right: rightFood }, // Store both foods
+    });
+    localStorage.setItem("activityLog", JSON.stringify(activityLog));
+
+    navigate("/compare/result"); // Navigate to the comparison result page
+  };
+
   return (
     <div className="compare-page">
       <div className="left-triangle">
@@ -28,15 +44,12 @@ const Compare = () => {
       <div className="vs-circle">VS</div>
 
       {leftPhoto && rightPhoto && (
-  <button className="compare-button" onClick={() => navigate("/compare/result")}>
-    Compare
-  </button>
-)}
-
+        <button className="compare-button" onClick={handleCompare}>
+          Compare
+        </button>
+      )}
     </div>
   );
 };
 
 export default Compare;
-
-

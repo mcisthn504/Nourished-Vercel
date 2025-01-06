@@ -1,0 +1,103 @@
+.activity-log {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+  }
+  
+  .header h1 {
+    font-size: 26px;
+    color: #000;
+  }
+  
+  .back-button {
+    background-color: white;
+    color: #ff7043;
+    border: 2px solid #ff7043;
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .back-button i {
+    margin-right: 8px;
+    font-size: 22px;
+  }
+  
+  /* Clear Log Button */
+  .clear-log-section {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0;
+  }
+  
+  .clear-log-button {
+    padding: 10px 18px;
+    border: 2px solid #ff7043;
+    background-color: white;
+    color: #ff7043;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .clear-log-button:hover {
+    background-color: #ff7043;
+    color: white;
+  }
+  
+  /* Log Entry Styling */
+  .log-list {
+    margin-top: 20px;
+  }
+  
+  .log-entry {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .log-entry strong {
+    color: #333;
+    font-size: 16px;
+  }
+  
+  .log-entry p {
+    margin: 5px 0 0;
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .timestamp {
+    font-size: 12px;
+    color: #999;
+    margin-top: 5px;
+  }
+  
+  /* Review Quiz Button */
+  .review-quiz-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff7043;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+  }
+  
+  .review-quiz-button:hover {
+    background-color: #ff5722;
+    transform: translateY(-3px);
+  }
+  
