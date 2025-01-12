@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/hamburger-info.css";
 
-import hamburgerImage from "../images/hamburger.jpg";
+import hamburgerImage from "../images/hamburger.jpg"; // Add the path to your hamburger image
 
 const HamburgerPage = () => {
   const navigate = useNavigate();
   const { favorites, toggleFavorite } = useFavorites(); // Use the context
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for dropdown menu
 
   // Check if the hamburger is marked as favorite
   const isFavorite = favorites.includes("hamburger");
@@ -18,6 +19,11 @@ const HamburgerPage = () => {
 
   const handleFavoriteClick = () => {
     toggleFavorite("hamburger"); // Toggle the favorite status for "hamburger"
+  };
+
+  const handleReportMistake = () => {
+    setIsMenuOpen(false); // Close the menu after selection
+    navigate("/report");
   };
 
   return (
@@ -36,16 +42,28 @@ const HamburgerPage = () => {
             {isFavorite ? "favorite" : "favorite_border"}
           </i>
         </button>
+        <div className="menu-container">
+          <button
+            className="menu-button"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+          >
+            <i className="material-icons">more_vert</i>
+          </button>
+          {isMenuOpen && (
+            <div className="dropdown-menu">
+              <button className="dropdown-item" onClick={handleReportMistake}>
+                Report Mistake
+              </button>
+            </div>
+          )}
+        </div>
       </header>
 
       {/* Content */}
       <div className="content">
+      <p className="hamburger-category">MAIN COURSE</p>
         <div className="hamburger-container">
-          <img
-            src={hamburgerImage}
-            alt="Hamburger"
-            className="hamburger-image"
-          />
+          <img src={hamburgerImage} alt="Hamburger" className="hamburger-image" />
           <h2 className="hamburger-name">Hamburger</h2>
         </div>
         <div className="info-list">
@@ -72,8 +90,8 @@ const HamburgerPage = () => {
           <div className="info-row">
             <h3>History</h3>
             <p>
-              The hamburger originated in the late 19th or early 20th century,
-              evolving from minced meat dishes popular in Hamburg, Germany.
+            The hamburger originated in the late 19th or early 20th century,
+            evolving from minced meat dishes popular in Hamburg, Germany.
             </p>
           </div>
         </div>

@@ -84,7 +84,7 @@ const TakeAPic = () => {
       <div className="action-buttons">
         {!isPictureTaken ? (
           <button className="capture-button" onClick={takePicture}>
-            <i className="material-icons">camera</i> Capture
+            <i className="material-icons">camera</i>
           </button>
         ) : (
           <>

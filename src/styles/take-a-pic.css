@@ -48,6 +48,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .camera-view {
@@ -56,7 +58,9 @@
   height: auto;
   border: 5px solid #ff9933;
   border-radius: 15px;
+  object-fit: cover;
 }
+
 
 /* Action buttons container */
 .action-buttons {
@@ -64,7 +68,11 @@
   justify-content: space-around;
   padding: 20px;
   width: 100%;
+  position: fixed; /* Keep it fixed at the bottom */
+  bottom: 60px;
+  background-color: #fffbea; /* Match the background color */
 }
+
 
 /* Secondary button styling */
 .secondary-button {
@@ -110,6 +118,10 @@
   justify-content: center;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 100%; /* Adjust for spacing from the bottom */
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .capture-button .material-icons {

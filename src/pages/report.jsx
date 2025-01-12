@@ -72,20 +72,20 @@ const ReportPage = () => {
           >
             Category Issue
           </button>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="action-buttons">
-          <button className="cancel-button" onClick={handleCancel}>
-            Cancel
-          </button>
-          <button
-            className="confirm-button"
-            onClick={handleConfirm}
-            disabled={!selectedProblem} // Disable if no problem is selected
-          >
-            Confirm
-          </button>
+        
+            {/* Action Buttons */}
+            <div className="action-buttons">
+            <button className="cancel-button" onClick={handleCancel}>
+                Cancel
+            </button>
+            <button
+                className="confirm-button"
+                onClick={handleConfirm}
+                disabled={!selectedProblem} // Disable if no problem is selected
+            >
+                Confirm
+            </button>
+          </div>
         </div>
       </div>
 
