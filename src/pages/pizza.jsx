@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/hamburger-info.css";
@@ -8,6 +8,7 @@ import pizzaImage from "../images/pizza.jpg"; // Add the path to your pizza imag
 const PizzaPage = () => {
   const navigate = useNavigate();
   const { favorites, toggleFavorite } = useFavorites(); // Use the context
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for dropdown menu
 
   // Check if the pizza is marked as favorite
   const isFavorite = favorites.includes("pizza");
@@ -18,6 +19,11 @@ const PizzaPage = () => {
 
   const handleFavoriteClick = () => {
     toggleFavorite("pizza"); // Toggle the favorite status for "pizza"
+  };
+
+  const handleReportMistake = () => {
+    setIsMenuOpen(false); // Close the menu after selection
+    navigate("/report");
   };
 
   return (
@@ -36,6 +42,21 @@ const PizzaPage = () => {
             {isFavorite ? "favorite" : "favorite_border"}
           </i>
         </button>
+        <div className="menu-container">
+          <button
+            className="menu-button"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+          >
+            <i className="material-icons">more_vert</i>
+          </button>
+          {isMenuOpen && (
+            <div className="dropdown-menu">
+              <button className="dropdown-item" onClick={handleReportMistake}>
+                Report Mistake
+              </button>
+            </div>
+          )}
+        </div>
       </header>
 
       {/* Content */}

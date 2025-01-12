@@ -12,6 +12,7 @@ import Layout from "./pages/layout";
 import CategoriesPage from "./pages/categories";
 import ProfilePage from "./pages/profile";
 import FavoritesPage from "./pages/favorites";
+import ReportPage from "./pages/report.jsx";
 import { FavoritesProvider } from "./contexts/FavoritesContext";
 import { PhotoProvider } from "./contexts/photoContext"; // Add this
 import TakeAPicCompare from "./pages/take-a-pic-compare.jsx";
@@ -136,6 +137,14 @@ const App = () => {
               element={
                 <Layout>
                   <CategoriesPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/report"
+              element={
+                <Layout>
+                  <ReportPage />
                 </Layout>
               }
             />
