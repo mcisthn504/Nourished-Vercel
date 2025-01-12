@@ -1,12 +1,32 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/home-page.css";
 import DailyChallengeImage from "../images/daily-challenge.png";
 import TakeAPicImage from "../images/take-a-pic.png";
 import CompareImage from "../images/compare.png";
 
 const HomePage = () => {
-  const navigate = useNavigate(); // Initialize navigate hook
+  const navigate = useNavigate();
+  const [hasCompletedChallenge, setHasCompletedChallenge] = useState(false);
+  const [popupVisible, setPopupVisible] = useState(false);
+
+  useEffect(() => {
+    // Check if the user has already completed the challenge
+    const completed = localStorage.getItem("hasCompletedChallenge") === "true";
+    setHasCompletedChallenge(completed);
+  }, []);
+
+  const handleDailyChallengeClick = () => {
+    if (hasCompletedChallenge) {
+      // Show the popup if the challenge is already completed
+      setPopupVisible(true);
+    } else {
+      // Mark challenge as completed and store in localStorage
+      setHasCompletedChallenge(true);
+      localStorage.setItem("hasCompletedChallenge", "true");
+      navigate("/daily-challenge");
+    }
+  };
 
   const handleSearchClick = () => {
     // Navigate to /pizza when the search button is clicked
@@ -21,9 +41,13 @@ const HomePage = () => {
     navigate("/pizza");
   };
 
+  const closePopup = () => {
+    setPopupVisible(false);
+  };
+
   return (
     <div className="homepage">
-      <header className="header">
+       <header className="header">
         <div className="logo">
           <h1>NourishED</h1>
         </div>
@@ -47,7 +71,6 @@ const HomePage = () => {
       <div className="categories">
         <div className="categories-header">
           <h2>Categories</h2>
-          {/* Use Link here to navigate to /categories */}
           <Link to="/categories" className="see-all-link">
             See all
           </Link>
@@ -61,13 +84,11 @@ const HomePage = () => {
       </div>
 
       <section className="cards">
-        <div className="card">
-          <Link to="/daily-challenge">
-            <h3>Daily Challenge</h3>
-            <div className="card-content">
-              <img src={DailyChallengeImage} alt="Daily Challenge" />
-            </div>
-          </Link>
+        <div className="card" onClick={handleDailyChallengeClick}>
+          <h3>Daily Challenge</h3>
+          <div className="card-content">
+            <img src={DailyChallengeImage} alt="Daily Challenge" />
+          </div>
         </div>
         <div className="card">
           <Link to="/camera">
@@ -86,6 +107,7 @@ const HomePage = () => {
           </Link>
         </div>
       </section>
+
       {/* Bottom Navigation */}
       <nav className="bottom-nav">
         <Link to="/" className="active">
@@ -109,8 +131,17 @@ const HomePage = () => {
           <span>Activity Log</span>
         </Link>
       </nav>
+
+      {/* Popup Modal */}
+      {popupVisible && (
+        <div className="popup">
+          <div className="popup-content">
+            <p>You have already completed the Daily Challenge!</p>
+            <button onClick={closePopup}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
-    
   );
 };
 
