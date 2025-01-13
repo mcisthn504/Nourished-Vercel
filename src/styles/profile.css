@@ -66,3 +66,31 @@
   color: #333;
   margin: 5px 0 0 0;
 }
+
+.edit-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.edit-button:hover {
+  color: #0056b3;
+}
+
+.editable-input {
+  width: 70%;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 8px;
+  margin-top: 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.editable-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
