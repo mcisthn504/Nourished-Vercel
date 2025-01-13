@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/compare-result.css";
 
 import hamburgerImage from "../images/hamburger.jpg"; // Hamburger image
@@ -40,11 +41,41 @@ const CompareResultPage = () => {
 
   const healthiestMeal = isLeftHealthier ? leftMealInfo : rightMealInfo;
 
+  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // State for dropdown menu
+
+  const goBackToHomePage = () => {
+    navigate("/");
+  };
+
+  const handleReportMistake = () => {
+    setIsMenuOpen(false); // Close the menu after selection
+    navigate("/report");
+  };
+
   return (
     <div className="compare-result-page">
       {/* Header */}
       <header className="header">
-        <h1>Compare Meals</h1>
+        <button className="back-button" onClick={goBackToHomePage}>
+          <i className="material-icons">arrow_back</i>
+        </button>
+        <h1 className="title">Results</h1>
+        <div className="menu-container">
+          <button
+            className="menu-button"
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+          >
+            <i className="material-icons">more_vert</i>
+          </button>
+          {isMenuOpen && (
+            <div className="dropdown-menu">
+              <button className="dropdown-item" onClick={handleReportMistake}>
+                Report Mistake
+              </button>
+            </div>
+          )}
+        </div>
       </header>
 
       {/* Content */}

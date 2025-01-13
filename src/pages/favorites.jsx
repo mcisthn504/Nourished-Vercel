@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/favorites.css";
 
@@ -12,6 +12,9 @@ const FavoritesPage = () => {
   const navigate = useNavigate();
   const { favorites, removeFavorite } = useFavorites();
 
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredFavorites, setFilteredFavorites] = useState(favorites);
+
   const goBackToHomePage = () => {
     navigate("/");
   };
@@ -24,6 +27,24 @@ const FavoritesPage = () => {
     navigate("/pizza");
   };
 
+  // Handle search input
+  const handleSearch = (e) => {
+    const query = e.target.value.toLowerCase();
+    setSearchQuery(query);
+
+    // Filter favorites based on query
+    const filtered = favorites.filter((item) =>
+      item.toLowerCase().includes(query)
+    );
+    setFilteredFavorites(filtered);
+  };
+
+  // Reset the search
+  const resetSearch = () => {
+    setSearchQuery("");
+    setFilteredFavorites(favorites);
+  };
+
   return (
     <div className="favorites-page">
       {/* Header */}
@@ -32,14 +53,28 @@ const FavoritesPage = () => {
           <i className="material-icons">arrow_back</i>
         </button>
         <h1 className="title">Favorites</h1>
+        
       </header>
 
+      <div className="search-bar-container">
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Search favorites..."
+            value={searchQuery}
+            onChange={handleSearch}
+          />
+          <button className="show-all-button" onClick={resetSearch}>
+            Show All
+          </button>
+        </div>
+        
       {/* Favorites List */}
       <div className="favorites-list">
-        {favorites.length === 0 ? (
-          <p className="no-favorites">No favorites added yet.</p>
+        {filteredFavorites.length === 0 ? (
+          <p className="no-favorites">No favorites match your search.</p>
         ) : (
-          favorites.map((item) => (
+          filteredFavorites.map((item) => (
             <div className="favorite-item" key={item}>
               <img
                 src={item === "hamburger" ? hamburgerImage : pizzaImage} // Show appropriate image based on favorite item

@@ -51,22 +51,23 @@ const HomePage = () => {
         <div className="logo">
           <h1>NourishED</h1>
         </div>
-        <div className="search-section">
-          <div className="search-bar-container">
-            <span className="search-icon" onClick={handleSearchClick}>
-              <i className="material-icons">search</i>
-            </span>
-            <input
-              type="text"
-              className="search-bar"
-              placeholder="Search food..."
-            />
-            <span className="mic-icon">
-              <i className="material-icons">mic</i>
-            </span>
-          </div>
-        </div>
       </header>
+
+      <div className="search-section">
+        <div className="search-bar-container">
+          <span className="search-icon" onClick={handleSearchClick}>
+            <i className="material-icons">search</i>
+          </span>
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="Search food..."
+          />
+          <span className="mic-icon">
+            <i className="material-icons">mic</i>
+          </span>
+        </div>
+      </div>
 
       <div className="categories">
         <div className="categories-header">
