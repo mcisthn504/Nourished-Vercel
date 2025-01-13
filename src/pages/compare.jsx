@@ -7,8 +7,22 @@ const Compare = () => {
   const navigate = useNavigate();
   const { leftPhoto, rightPhoto } = usePhotoContext();
 
-  const handleTakePicture = (side) => {
-    navigate("/compare/take-a-pic-compare", { state: { side } });
+  const handleTakePictureLeft = () => {
+    navigate("/compare/take-a-pic-compare", { state: { side: "left" } });
+  };
+
+  const handleTakePictureRight = () => {
+    navigate("/compare/take-a-pic-compare", { state: { side: "right" } });
+  };
+
+  const handleSearchLeft = () => {
+    console.log("Search for left item triggered");
+    // Add logic for left search
+  };
+
+  const handleSearchRight = () => {
+    console.log("Search for right item triggered");
+    // Add logic for right search
   };
 
   const handleCompare = () => {
@@ -29,20 +43,35 @@ const Compare = () => {
 
   return (
     <div className="compare-page">
-      <div className="left-triangle">
-        <button className="button" onClick={() => handleTakePicture("left")}>
-          {leftPhoto ? "Retake" : "Camera"}
+      {/* Header */}
+      <header className="header">
+        <button className="back-button" onClick={() => navigate("/")}>
+          <i className="material-icons">arrow_back</i>
+        </button>
+        <h1>Compare</h1>
+      </header>
+
+      {/* Left Controls */}
+      <div className="left-controls">
+        <button className="button" onClick={handleTakePictureLeft}>
+          {leftPhoto ? "Retake" : "Take Picture"}
+        </button>
+        <button className="button" onClick={handleSearchLeft}>
+          Search
         </button>
       </div>
 
-      <div className="right-triangle">
-        <button className="button" onClick={() => handleTakePicture("right")}>
-          {rightPhoto ? "Retake" : "Camera"}
+      {/* Right Controls */}
+      <div className="right-controls">
+        <button className="button" onClick={handleTakePictureRight}>
+          {rightPhoto ? "Retake" : "Take Picture"}
+        </button>
+        <button className="button" onClick={handleSearchRight}>
+          Search
         </button>
       </div>
 
-      <div className="vs-circle">VS</div>
-
+      {/* Compare Button */}
       {leftPhoto && rightPhoto && (
         <button className="compare-button" onClick={handleCompare}>
           Compare

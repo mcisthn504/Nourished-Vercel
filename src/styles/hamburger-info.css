@@ -2,7 +2,8 @@
 .hamburger-info-page {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: auto;
+    padding-bottom: 10vh;
     background-color: #fffbea;
   }
   

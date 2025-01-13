@@ -68,7 +68,8 @@ body {
 
 /* Cards Section */
 .cards {
-  padding: 20px;
+  margin-top: -15px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -216,7 +217,7 @@ body {
 }
 
 .content-with-padding {
-  padding-bottom: 80px;  /* Prevent overlap with nav bar */
+  padding-bottom: 0px;  /* Prevent overlap with nav bar */
 }
 
 .popup {

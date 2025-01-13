@@ -56,19 +56,19 @@ const FavoritesPage = () => {
         
       </header>
 
-      <div className="search-bar-container">
-          <input
-            type="text"
-            className="search-bar"
-            placeholder="Search favorites..."
-            value={searchQuery}
-            onChange={handleSearch}
-          />
-          <button className="show-all-button" onClick={resetSearch}>
-            Show All
-          </button>
-        </div>
-        
+      <div className="search-bar-container-fav">
+        <input
+          type="text"
+          className="search-bar-fav"
+          placeholder="Search favorites..."
+          value={searchQuery}
+          onChange={handleSearch}
+        />
+        <button className="reset-button" onClick={resetSearch}>
+          Reset
+        </button>
+      </div>
+      
       {/* Favorites List */}
       <div className="favorites-list">
         {filteredFavorites.length === 0 ? (
@@ -77,23 +77,28 @@ const FavoritesPage = () => {
           filteredFavorites.map((item) => (
             <div className="favorite-item" key={item}>
               <img
-                src={item === "hamburger" ? hamburgerImage : pizzaImage} // Show appropriate image based on favorite item
+                src={item === "hamburger" ? hamburgerImage : pizzaImage}
                 alt={item}
                 className="favorite-image"
                 onClick={
                   item === "hamburger" ? goToHamburgerPage : goToPizzaPage
-                } // Navigate to the right page
+                }
               />
               <h2 className="favorite-name">
                 {item.charAt(0).toUpperCase() + item.slice(1)}
               </h2>
               <button
                 className="remove-favorite-button"
-                onClick={() => removeFavorite(item)}
+                onClick={() => {
+                  removeFavorite(item);
+                  const updatedFavorites = favorites.filter((fav) => fav !== item);
+                  setFilteredFavorites(updatedFavorites);
+                }}
               >
                 Remove
               </button>
             </div>
+
           ))
         )}
       </div>
