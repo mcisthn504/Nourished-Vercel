@@ -1,20 +1,42 @@
-import React from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate for navigation
-import "../styles/categories.css"; // Import the corresponding CSS file
-
-// Placeholder images for each category (circle style)
-const placeholderImage = "./images/hamburger.jpeg";
+import React, { useState } from "react";
+import {  useNavigate } from "react-router-dom";
+import "../styles/categories.css";
 
 const CategoriesPage = () => {
   const navigate = useNavigate();
+  const [showPopup, setShowPopup] = useState(false);
 
   const goBackToHomePage = () => {
     navigate("/");
   };
 
+  const handleCategoryClick = (category) => {
+    if (category === "starters" || category === "mains") {
+      navigate(`/categories/${category}`);
+    } else {
+      setShowPopup(true); // Show pop-up for unavailable categories
+    }
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+  };
+
+  // Categories with links
+  const categories = [
+    { name: "Starters", icon: "restaurant", key: "starters" },
+    { name: "Mains", icon: "dining", key: "mains" },
+    { name: "Desserts", icon: "cake", key: "desserts" },
+    { name: "Appetizers", icon: "fastfood", key: "appetizers" },
+    { name: "Snacks", icon: "local_cafe", key: "snacks" },
+    { name: "Vegetarian", icon: "grass", key: "vegetarian" },
+    { name: "Vegan", icon: "eco", key: "vegan" },
+    { name: "Gluten Free", icon: "no_meals", key: "gluten-free" },
+    { name: "Low Calorie", icon: "fitness_center", key: "low-calorie" },
+  ];
+
   return (
     <div className="categories-page">
-      {/* Header */}
       <header className="header">
         <button className="back-button" onClick={goBackToHomePage}>
           <i className="material-icons">arrow_back</i>
@@ -22,90 +44,35 @@ const CategoriesPage = () => {
         <h1 className="title">Categories</h1>
       </header>
 
-      {/* Categories List */}
       <div className="categories-list">
-        <div className="category-item">
-          <Link to="/starters">
-            <div
-              className="category-image"
-              style={{ backgroundImage: `url(${placeholderImage})` }}
-            ></div>
-            <h3 className="category-name">Starters</h3>
-          </Link>
-        </div>
-        <div className="category-item">
-          <Link to="/mains">
-            <div
-              className="category-image"
-              style={{ backgroundImage: `url(${placeholderImage})` }}
-            ></div>
-            <h3 className="category-name">Mains</h3>
-          </Link>
-        </div>
-        <div className="category-item">
-          <Link to="/desserts">
-            <div
-              className="category-image"
-              style={{ backgroundImage: `url(${placeholderImage})` }}
-            ></div>
-            <h3 className="category-name">Desserts</h3>
-          </Link>
-        </div>
-        <div className="category-item">
-          <Link to="/appetizers">
-            <div
-              className="category-image"
-              style={{ backgroundImage: `url(${placeholderImage})` }}
-            ></div>
-            <h3 className="category-name">Appetizers</h3>
-          </Link>
-        </div>
-        <div className="category-item">
-          <Link to="/snacks">
-            <div
-              className="category-image"
-              style={{ backgroundImage: `url(${placeholderImage})` }}
-            ></div>
-            <h3 className="category-name">Snacks</h3>
-          </Link>
-        </div>
-        <div className="category-item">
-          <Link to="/vegetarian">
-            <div
-              className="category-image"
-              style={{ backgroundImage: `url(${placeholderImage})` }}
-            ></div>
-            <h3 className="category-name">Vegetarian</h3>
-          </Link>
-        </div>
-        <div className="category-item">
-          <Link to="/vegan">
-            <div
-              className="category-image"
-              style={{ backgroundImage: `url(${placeholderImage})` }}
-            ></div>
-            <h3 className="category-name">Vegan</h3>
-          </Link>
-        </div>
-        <div className="category-item">
-          <Link to="/gluten-free">
-            <div
-              className="category-image"
-              style={{ backgroundImage: `url(${placeholderImage})` }}
-            ></div>
-            <h3 className="category-name">Gluten Free</h3>
-          </Link>
-        </div>
-        <div className="category-item">
-          <Link to="/low-calorie">
-            <div
-              className="category-image"
-              style={{ backgroundImage: `url(${placeholderImage})` }}
-            ></div>
-            <h3 className="category-name">Low Calorie</h3>
-          </Link>
-        </div>
+        {categories.map((category, index) => (
+          <div
+            className="category-item"
+            key={index}
+            onClick={() => handleCategoryClick(category.key)}
+          >
+            <div className="category-icon">
+              <i className="material-icons">{category.icon}</i>
+            </div>
+            <h3 className="category-name">{category.name}</h3>
+          </div>
+        ))}
       </div>
+
+      {/* Popup */}
+      {showPopup && (
+        <div className="popup-overlay">
+          <div className="popup">
+            <p>
+              This page is not available at the moment. Try with{" "}
+              <strong>Starters</strong> or <strong>Mains</strong> instead.
+            </p>
+            <button className="close-button" onClick={closePopup}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

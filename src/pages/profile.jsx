@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/profile.css"; // Reuse the existing CSS
 
@@ -10,16 +10,27 @@ const ProfilePage = () => {
   };
 
   // State for user info
-  const [userInfo, setUserInfo] = useState({
-    name: "John Doe",
-    age: "30",
-    location: "New York, USA",
-    interests: "Food, Technology, Traveling",
-    favoriteFood: "Pizza, Sushi, Hamburger",
-    bio: "I am a food enthusiast who loves exploring new cuisines and experimenting with recipes. When I'm not in the kitchen, I enjoy learning about emerging technologies and traveling to new places.",
+  const [userInfo, setUserInfo] = useState(() => {
+    const savedData = localStorage.getItem("userInfo");
+    return savedData
+      ? JSON.parse(savedData)
+      : {
+          name: "John Doe",
+          age: "30",
+          location: "New York, USA",
+          interests: "Food, Technology, Traveling",
+          favoriteFood: "Pizza, Sushi, Hamburger",
+          bio: "I am a food enthusiast who loves exploring new cuisines and experimenting with recipes. When I'm not in the kitchen, I enjoy learning about emerging technologies and traveling to new places.",
+        };
   });
 
   const [isEditing, setIsEditing] = useState(false);
+
+  // Save user info to localStorage when it's updated
+  useEffect(() => {
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+  }, [userInfo]);
+
 
   // Handle input change
   const handleInputChange = (e) => {

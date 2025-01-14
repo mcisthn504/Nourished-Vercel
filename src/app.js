@@ -18,6 +18,8 @@ import { FavoritesProvider } from "./contexts/FavoritesContext";
 import { PhotoProvider } from "./contexts/photoContext"; // Add this
 import TakeAPicCompare from "./pages/take-a-pic-compare.jsx";
 import ActivityLog from "./pages/activity-log";
+import StartersPage from "./pages/starters";
+import MainsPage from "./pages/mains";
 
 //const ActivityLog = () => <h2>Activity Log Page</h2>;
 
@@ -141,6 +143,8 @@ const App = () => {
                 </Layout>
               }
             />
+            <Route path="/categories/starters" element={<StartersPage />} />
+            <Route path="/categories/mains" element={<MainsPage />} />
             <Route
               path="/report"
               element={
