@@ -14,6 +14,7 @@ import ProfilePage from "./pages/profile";
 import FavoritesPage from "./pages/favorites";
 import ReportPage from "./pages/report.jsx";
 import SearchPage from "./pages/search-page.jsx";
+import SearchPageCompare from "./pages/search-page-compare.jsx";
 import { FavoritesProvider } from "./contexts/FavoritesContext";
 import { PhotoProvider } from "./contexts/photoContext"; // Add this
 import TakeAPicCompare from "./pages/take-a-pic-compare.jsx";
@@ -158,6 +159,14 @@ const App = () => {
               element={
                 <Layout>
                   <SearchPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/compare/search"
+              element={
+                <Layout>
+                  <SearchPageCompare />
                 </Layout>
               }
             />

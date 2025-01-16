@@ -17,11 +17,11 @@ const Compare = () => {
   };
 
   const handleSearchLeft = () => {
-    console.log("Search for left item triggered");
+    navigate("/compare/search", { state: { side: "left" } });
   };
 
   const handleSearchRight = () => {
-    console.log("Search for right item triggered");
+    navigate("/compare/search", { state: { side: "right" } });
   };
 
   const handleCompareClick = () => {
