@@ -58,7 +58,8 @@ const ExplanationPage = () => {
   const location = useLocation();
   const [quiz, setQuiz] = useState(null);
   const [showModal, setShowModal] = useState(false);
-
+  const [showPopup, setShowPopup] = useState(false); // State to toggle the popup
+    
   const nextQuizIndex = new URLSearchParams(location.search).get("next");
   const fromReview = location.state?.fromReview || false;
 
@@ -87,8 +88,13 @@ const ExplanationPage = () => {
     } else if (nextQuizIndex < quizData.length) {
       navigate(`/daily-challenge?index=${nextQuizIndex}`);
     } else {
-      navigate("/"); // Redirect to home if no more quizzes
+      setShowPopup(true); // Show the popup
     }
+  };
+
+  const closePopup = () => {
+    setShowPopup(false); // Close the popup
+    navigate("/"); // Redirect to home after closing the popup
   };
 
   return (
@@ -143,6 +149,19 @@ const ExplanationPage = () => {
                 Close Quiz
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Popup */}
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Good job!</h2>
+            <p>You completed your daily quiz. Come back tomorrow for more!</p>
+            <button className="close-popup-button" onClick={closePopup}>
+              Close
+            </button>
           </div>
         </div>
       )}

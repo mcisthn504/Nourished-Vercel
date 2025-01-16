@@ -17,7 +17,7 @@ const HomePage = () => {
   }, []);
 
   const handleDailyChallengeClick = () => {
-    if (hasCompletedChallenge) {
+    if (!hasCompletedChallenge) {
       // Show the popup if the challenge is already completed
       setPopupVisible(true);
     } else {
@@ -89,21 +89,17 @@ const HomePage = () => {
             <img src={DailyChallengeImage} alt="Daily Challenge" />
           </div>
         </div>
-        <div className="card">
-          <Link to="/camera">
+        <div className="card" onClick={() => navigate("/camera")}>
             <h3>Take a Pic</h3>
             <div className="card-content">
               <img src={TakeAPicImage} alt="Take a Pic" />
             </div>
-          </Link>
         </div>
-        <div className="card">
-          <Link to="/compare">
-            <h3>Compare</h3>
-            <div className="card-content">
-              <img src={CompareImage} alt="Compare" />
-            </div>
-          </Link>
+        <div className="card" onClick={() => navigate("/compare")}>
+          <h3>Compare</h3>
+          <div className="card-content">
+            <img src={CompareImage} alt="Compare" />
+          </div>
         </div>
       </section>
 

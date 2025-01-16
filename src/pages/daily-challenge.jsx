@@ -55,6 +55,8 @@ const quizData = [
 const DailyChallenge = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [showResults, setShowResults] = useState(false);
+  const [showPopup, setShowPopup] = useState(false); // State to toggle the popup
+  
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -67,6 +69,11 @@ const DailyChallenge = () => {
 
   // Load quiz based on reviewState or index
   const [currentQuiz, setCurrentQuiz] = useState(null);
+
+  const closePopup = () => {
+    setShowPopup(false); // Close the popup
+    navigate("/"); // Redirect to home after closing the popup
+  };
 
   useEffect(() => {
     // Get quiz from the data
@@ -122,8 +129,7 @@ const DailyChallenge = () => {
       setShowResults(false);
       setSelectedAnswer(null);
     } else {
-      alert("You've completed all quizzes!");
-      navigate("/");
+      setShowPopup(true); // Show the popup
     }
   };
 
@@ -144,7 +150,6 @@ const DailyChallenge = () => {
               onClick={() => window.history.back()}
             >
               <i className="material-icons">arrow_back</i>
-              Back
             </button>
             <h1>Daily Challenge</h1>
           </header>
@@ -208,6 +213,20 @@ const DailyChallenge = () => {
           </div>
         </>
       )}
+
+      {/* Popup */}
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Good job!</h2>
+            <p>You completed your daily quiz. Come back tomorrow for more!</p>
+            <button className="close-popup-button" onClick={closePopup}>
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
