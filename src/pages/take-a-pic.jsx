@@ -77,7 +77,7 @@ const TakeAPic = () => {
     <div className="take-a-pic-page">
       {/* Header */}
       <header className="header">
-        <button className="back-button" onClick={() => navigate("/")}>
+        <button className="back-button" onClick={() => window.history.back()}>
           <i className="material-icons">arrow_back</i>
         </button>
         <h1>Take a Pic</h1>

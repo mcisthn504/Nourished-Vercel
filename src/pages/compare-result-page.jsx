@@ -44,10 +44,6 @@ const CompareResultPage = () => {
   const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for dropdown menu
 
-  const goBackToHomePage = () => {
-    navigate("/");
-  };
-
   const handleReportMistake = () => {
     setIsMenuOpen(false); // Close the menu after selection
     navigate("/report");
@@ -57,7 +53,7 @@ const CompareResultPage = () => {
     <div className="compare-result-page">
       {/* Header */}
       <header className="header">
-        <button className="back-button" onClick={goBackToHomePage}>
+        <button className="back-button" onClick={() => window.history.back()}>
           <i className="material-icons">arrow_back</i>
         </button>
         <h1 className="title">Results</h1>

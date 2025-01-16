@@ -13,10 +13,6 @@ const PizzaPage = () => {
   // Check if the pizza is marked as favorite
   const isFavorite = favorites.includes("pizza");
 
-  const goBackToHomePage = () => {
-    navigate("/");
-  };
-
   const handleFavoriteClick = () => {
     toggleFavorite("pizza"); // Toggle the favorite status for "pizza"
   };
@@ -30,7 +26,7 @@ const PizzaPage = () => {
     <div className="hamburger-info-page">
       {/* Header */}
       <header className="header">
-        <button className="back-button" onClick={goBackToHomePage}>
+        <button className="back-button" onClick={() => window.history.back()}>
           <i className="material-icons">arrow_back</i>
         </button>
         <h1 className="title">Information</h1>

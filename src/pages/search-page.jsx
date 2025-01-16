@@ -10,11 +10,11 @@ import cheeseburgerImage from "../images/cheeseburger.jpg"; // Replace with the 
 import saladImage from "../images/salad.jpg"; // Replace with the correct path
 
 const items = [
-  { name: "Pizza", image: pizzaImage },
-  { name: "Hamburger", image: hamburgerImage },
-  { name: "Pizza with ham", image: pizzaHamImage },
-  { name: "Cheeseburger", image: cheeseburgerImage },
-  { name: "Salad", image: saladImage },
+  { name: "Pizza", image: pizzaImage, route: "/pizza" },
+  { name: "Hamburger", image: hamburgerImage, route: "/hamburger" },
+  { name: "Pizza with ham", image: pizzaHamImage, route: "/pizza-with-ham" },
+  { name: "Cheeseburger", image: cheeseburgerImage, route: "/cheeseburger" },
+  { name: "Salad", image: saladImage, route: "/salad" },
 ];
 
 const SearchPage = () => {
@@ -34,11 +34,15 @@ const SearchPage = () => {
     }
   }, [initialSearchTerm]);
 
+  const handleItemClick = (route) => {
+    navigate(route);
+  };
+
   return (
     <div className="search-page-search">
       {/* Header */}
       <header className="header">
-        <button className="back-button" onClick={() => navigate("/")}>
+        <button className="back-button" onClick={() => window.history.back()}>
           <i className="material-icons">arrow_back</i>
         </button>
         <h1 className="title">Search</h1>
@@ -67,7 +71,12 @@ const SearchPage = () => {
       {filteredItems.length > 0 ? (
         <div className="search-results">
           {filteredItems.map((item) => (
-            <div className="search-item" key={item.name}>
+            <div
+              className="search-item"
+              key={item.name}
+              onClick={() => handleItemClick(item.route)}
+              style={{ cursor: "pointer" }}
+            >
               <img src={item.image} alt={item.name} className="item-image" />
               <h2 className="item-name">{item.name}</h2>
             </div>

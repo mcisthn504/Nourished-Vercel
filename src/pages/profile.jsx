@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import "../styles/profile.css"; // Reuse the existing CSS
 
 const ProfilePage = () => {
-  const navigate = useNavigate();
-
-  const goBackToHomePage = () => {
-    navigate("/");
-  };
+  //const navigate = useNavigate();
 
   // State for user info
   const [userInfo, setUserInfo] = useState(() => {
@@ -57,7 +53,7 @@ const ProfilePage = () => {
     <div className="profile-info-page">
       {/* Header */}
       <header className="header">
-        <button className="back-button" onClick={goBackToHomePage}>
+        <button className="back-button" onClick={() => window.history.back()}>
           <i className="material-icons">arrow_back</i>
         </button>
         <h1 className="title">Profile</h1>

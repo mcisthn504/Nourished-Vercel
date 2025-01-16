@@ -15,10 +15,6 @@ const FavoritesPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredFavorites, setFilteredFavorites] = useState(favorites);
 
-  const goBackToHomePage = () => {
-    navigate("/");
-  };
-
   const goToHamburgerPage = () => {
     navigate("/hamburger");
   };
@@ -49,7 +45,7 @@ const FavoritesPage = () => {
     <div className="favorites-page">
       {/* Header */}
       <header className="header">
-        <button className="back-button" onClick={goBackToHomePage}>
+        <button className="back-button" onClick={() => window.history.back()}>
           <i className="material-icons">arrow_back</i>
         </button>
         <h1 className="title">Favorites</h1>

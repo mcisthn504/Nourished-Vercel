@@ -23,7 +23,7 @@ const ReportPage = () => {
   };
 
   const handleCancel = () => {
-    navigate("/"); // Redirect to home without submitting
+    window.history.back();
   };
 
   return (
