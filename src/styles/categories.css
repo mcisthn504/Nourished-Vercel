@@ -1,4 +1,3 @@
-/*
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -12,24 +11,22 @@
   z-index: 1000;
 }
 
-
 .popup {
   background: #fff;
   padding: 20px;
-  border-radius: 10px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  max-width: 300px;
   width: 80%;
+  display: flex;
+  flex-direction: column;  /* Aligns text and button vertically */
+  justify-content: center;  /* Centers them vertically within the popup */
+  align-items: center;  /* Centers content horizontally */
 }
-
 
 .popup p {
-  font-size: 16px;
+  font-size: 25px;
   margin-bottom: 20px;
-  color: #333;
 }
-*/
 
 .close-button {
   background-color: #ff7043;
@@ -38,8 +35,9 @@
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 20px;
   transition: background-color 0.3s ease;
+  margin-top: 20px;  /* Adds spacing between text and button */
 }
 
 .close-button:hover {

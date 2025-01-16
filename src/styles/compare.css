@@ -36,7 +36,7 @@
 .left-controls {
   position: absolute;
   top: 60%;
-  left: 10%;
+  left: 25%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -48,7 +48,7 @@
 .right-controls {
   position: absolute;
   top: 45%;
-  right: 10%;
+  right: 25%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
@@ -56,20 +56,36 @@
   gap: 10px;
 }
 
-/* Buttons */
-.button {
-  background-color: #ffaa00;
-  color: white;
+/* Icon Buttons */
+.icon-button {
+  background-color: transparent;
+  color: orange;
   border: none;
-  border-radius: 5px;
-  padding: 15px 25px;
-  font-size: 16px;
+  scale: 300%;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: transform 0.2s, background-color 0.2s ease, color 0.2s ease;
+  font-size: 60px;
+  clip-path: inset(40% 0 20% 0); /* Crop 30% from the top and bottom */
 }
 
-.button:hover {
-  background-color: #d58e00;
+
+.icon-button:hover {
+  transform: scale(1.1); /* Slightly enlarge the icons on hover */
+}
+
+.icon-button:focus {
+  outline: none; /* Remove default focus outline */
+}
+
+/* Selected state for the icon buttons */
+.icon-button.selected {
+  background-color: transparent;
+  color: rgb(43, 57, 255);
+  border-color: transparent;
+  scale: 300%;
+  font-size: 60px; /* Larger icon size */
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Compare Button */
@@ -78,21 +94,56 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-  transform-origin: center; /* Ensure scaling happens from the center */
-  background-color: #007bff; /* Bright blue */
+  transform-origin: center;
+  background-color: #007bff;
   color: white;
   border: none;
-  border-radius: 8px; /* More rounded corners */
-  padding: 15px 30px; /* Larger padding */
-  font-size: 20px; /* Bigger font size */
-  font-weight: bold; /* Bold text */
+  border-radius: 8px;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .compare-button:hover {
-  background-color: #0056b3; /* Darker blue for hover effect */
-  transform: translateX(-50%) scale(1.1); /* Maintain centering while scaling */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+  background-color: #0056b3;
+  transform: translateX(-50%) scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cancel-button-compare {
+  background-color: #ff4444; /* Bright red */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.cancel-button-compare:hover {
+  background-color: #cc0000; /* Darker red */
+  transform: scale(1.1);
+}
+
+.cancel-button-compare:focus {
+  outline: none;
+}
+
+/* Left Cancel Button */
+.left-controls .cancel-button-compare {
+  position: absolute; /* Make it independent of the other buttons */
+  left: -40px; /* Move it farther to the left */
+  transform: none; /* Reset default transform */
+}
+
+/* Right Cancel Button */
+.right-controls .cancel-button-compare {
+  position: absolute; /* Make it independent of the other buttons */
+  right: -40px; /* Move it farther to the right */
+  transform: none; /* Reset default transform */
 }

@@ -24,6 +24,14 @@ const Compare = () => {
     navigate("/compare/search", { state: { side: "right" } });
   };
 
+  const handleCancelLeft = () => {
+    setLeftPhoto(null); // Reset the left photo
+  };
+
+  const handleCancelRight = () => {
+    setRightPhoto(null); // Reset the right photo
+  };
+
   const handleCompareClick = () => {
     if (!leftPhoto || !rightPhoto) {
       setPopupMessage("Please select two items before comparing");
@@ -55,8 +63,8 @@ const Compare = () => {
   const handleGoBack = () => {
     setLeftPhoto(null); // Reset the left photo
     setRightPhoto(null); // Reset the right photo
-    navigate('/');
-  }
+    navigate("/");
+  };
 
   return (
     <div className="compare-page">
@@ -70,29 +78,42 @@ const Compare = () => {
 
       {/* Left Controls */}
       <div className="left-controls">
-        <button className="button" onClick={handleTakePictureLeft}>
-          {leftPhoto ? "Retake" : "Take Picture"}
-        </button>
-        <button className="button" onClick={handleSearchLeft}>
-          Search
-        </button>
+        {leftPhoto ? (
+          <button className="cancel-button-compare" onClick={handleCancelLeft}>
+            Cancel Selection
+          </button>
+        ) : (
+          <>
+            <button className="icon-button" onClick={handleTakePictureLeft}>
+              <i className="material-icons">camera_alt</i>
+            </button>
+            <button className="icon-button" onClick={handleSearchLeft}>
+              <i className="material-icons">search</i>
+            </button>
+          </>
+        )}
       </div>
 
       {/* Right Controls */}
       <div className="right-controls">
-        <button className="button" onClick={handleTakePictureRight}>
-          {rightPhoto ? "Retake" : "Take Picture"}
-        </button>
-        <button className="button" onClick={handleSearchRight}>
-          Search
-        </button>
+        {rightPhoto ? (
+          <button className="cancel-button-compare" onClick={handleCancelRight}>
+            Cancel Selection
+          </button>
+        ) : (
+          <>
+            <button className="icon-button" onClick={handleTakePictureRight}>
+              <i className="material-icons">camera_alt</i>
+            </button>
+            <button className="icon-button" onClick={handleSearchRight}>
+              <i className="material-icons">search</i>
+            </button>
+          </>
+        )}
       </div>
 
-       {/* Compare Button */}
-       <button
-        className="compare-button"
-        onClick={handleCompareClick}
-      >
+      {/* Compare Button */}
+      <button className="compare-button" onClick={handleCompareClick}>
         Compare
       </button>
 

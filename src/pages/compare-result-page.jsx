@@ -91,7 +91,6 @@ const CompareResultPage = () => {
             <p><strong>Nutrients:</strong> {leftMealInfo.nutrients}</p>
             <p><strong>Macros:</strong> {leftMealInfo.macros}</p>
             <p><strong>Sodium:</strong> {leftMealInfo.sodium}mg</p>
-            <p><strong>History:</strong> {leftMealInfo.history}</p>
           </div>
         </div>
 
@@ -110,7 +109,6 @@ const CompareResultPage = () => {
             <p><strong>Nutrients:</strong> {rightMealInfo.nutrients}</p>
             <p><strong>Macros:</strong> {rightMealInfo.macros}</p>
             <p><strong>Sodium:</strong> {rightMealInfo.sodium}mg</p>
-            <p><strong>History:</strong> {rightMealInfo.history}</p>
           </div>
         </div>
       </div>
@@ -124,6 +122,13 @@ const CompareResultPage = () => {
           These factors contribute to a more balanced nutritional profile, making it a better choice for maintaining a healthy diet.
         </p>
       </div>
+
+      {/* Disclaimer Section */}
+        <footer className="disclaimer">
+          <p>
+            <strong>Disclaimer:</strong> The food comparison presented on this page is based on general nutritional data and does not constitute a scientifically rigorous analysis. Individual dietary needs and health considerations vary, and this content is intended for informational purposes only. For personalized advice, consult a qualified nutritionist or healthcare professional.
+          </p>
+        </footer>
     </div>
   );
 };

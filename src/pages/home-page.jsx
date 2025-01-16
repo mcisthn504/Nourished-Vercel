@@ -71,10 +71,14 @@ const HomePage = () => {
           </Link>
         </div>
         <div className="category-tags">
-          <span className="tag">Seconds</span>
-          <span className="tag">Fruits</span>
-          <span className="tag">Proteic Foods</span>
-          <span className="tag">Appetizers</span>
+          <span className="tag"><Link to="/categories/starters" className="see-all-link">
+            Starters </Link></span>
+          <span className="tag"><Link to="/categories/mains" className="see-all-link">
+            Mains </Link></span>
+            <span className="tag"><Link to="/categories/desserts" className="see-all-link">
+            Desserts </Link></span>
+            <span className="tag"><Link to="/categories/appetizers" className="see-all-link">
+            Appetizers </Link></span>
         </div>
       </div>
 
