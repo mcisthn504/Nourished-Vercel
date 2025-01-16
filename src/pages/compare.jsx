@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { usePhotoContext } from "../contexts/photoContext";
 import "../styles/compare.css";
 
 const Compare = () => {
   const navigate = useNavigate();
-  const { leftPhoto, rightPhoto } = usePhotoContext();
+  const { leftPhoto, rightPhoto, setLeftPhoto, setRightPhoto } = usePhotoContext();
+  const [popupMessage, setPopupMessage] = useState("");
 
   const handleTakePictureLeft = () => {
     navigate("/compare/take-a-pic-compare", { state: { side: "left" } });
@@ -17,35 +18,51 @@ const Compare = () => {
 
   const handleSearchLeft = () => {
     console.log("Search for left item triggered");
-    // Add logic for left search
   };
 
   const handleSearchRight = () => {
     console.log("Search for right item triggered");
-    // Add logic for right search
   };
 
-  const handleCompare = () => {
-    const leftFood = "Hamburger"; // Mock left food item
-    const rightFood = "Pizza"; // Mock right food item
+  const handleCompareClick = () => {
+    if (!leftPhoto || !rightPhoto) {
+      setPopupMessage("Please select two items before comparing");
+      return;
+    }
+
+    const leftFood = "Hamburger";
+    const rightFood = "Pizza";
 
     const activityLog = JSON.parse(localStorage.getItem("activityLog")) || [];
     activityLog.push({
       type: "Comparison",
       details: `${leftFood} vs ${rightFood}`,
       timestamp: new Date().toLocaleString(),
-      comparisonResult: { left: leftFood, right: rightFood }, // Store both foods
+      comparisonResult: { left: leftFood, right: rightFood },
     });
     localStorage.setItem("activityLog", JSON.stringify(activityLog));
 
-    navigate("/compare/result"); // Navigate to the comparison result page
+    setLeftPhoto(null); // Reset the left photo
+    setRightPhoto(null); // Reset the right photo
+
+    navigate("/compare/result");
   };
+
+  const handleClosePopup = () => {
+    setPopupMessage("");
+  };
+
+  const handleGoBack = () => {
+    setLeftPhoto(null); // Reset the left photo
+    setRightPhoto(null); // Reset the right photo
+    navigate('/');
+  }
 
   return (
     <div className="compare-page">
       {/* Header */}
       <header className="header">
-        <button className="back-button" onClick={() => window.history.back()}>
+        <button className="back-button" onClick={handleGoBack}>
           <i className="material-icons">arrow_back</i>
         </button>
         <h1>Compare</h1>
@@ -71,11 +88,25 @@ const Compare = () => {
         </button>
       </div>
 
-      {/* Compare Button */}
-      {leftPhoto && rightPhoto && (
-        <button className="compare-button" onClick={handleCompare}>
-          Compare
-        </button>
+       {/* Compare Button */}
+       <button
+        className="compare-button"
+        onClick={handleCompareClick}
+      >
+        Compare
+      </button>
+
+      {/* Popup Message */}
+      {popupMessage && (
+        <div className="popup">
+          <div className="popup-content">
+            <h2>Ooops!</h2>
+            <p>{popupMessage}.</p>
+            <button className="close-popup-button" onClick={handleClosePopup}>
+              Close
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );

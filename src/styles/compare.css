@@ -58,7 +58,7 @@
 
 /* Buttons */
 .button {
-  background-color: #4caf50;
+  background-color: #ffaa00;
   color: white;
   border: none;
   border-radius: 5px;
@@ -69,7 +69,7 @@
 }
 
 .button:hover {
-  background-color: #388e3c;
+  background-color: #d58e00;
 }
 
 /* Compare Button */
@@ -78,6 +78,7 @@
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  transform-origin: center; /* Ensure scaling happens from the center */
   background-color: #007bff; /* Bright blue */
   color: white;
   border: none;
@@ -92,6 +93,6 @@
 
 .compare-button:hover {
   background-color: #0056b3; /* Darker blue for hover effect */
-  transform: scale(1.1); /* Slight enlargement on hover */
+  transform: translateX(-50%) scale(1.1); /* Maintain centering while scaling */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
 }
