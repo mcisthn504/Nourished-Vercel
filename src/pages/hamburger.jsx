@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
-import "../styles/hamburger-info.css";
+import "../styles/food-info.css";
 
 import hamburgerImage from "../images/hamburger.jpg"; // Add the path to your hamburger image
 
@@ -10,7 +10,7 @@ const HamburgerPage = () => {
   const { favorites, toggleFavorite } = useFavorites(); // Use the context
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for dropdown menu
 
-  // Check if the hamburger is marked as favorite
+  // Check if the food is marked as favorite
   const isFavorite = favorites.includes("hamburger");
 
   const handleFavoriteClick = () => {
@@ -23,7 +23,7 @@ const HamburgerPage = () => {
   };
 
   return (
-    <div className="hamburger-info-page">
+    <div className="food-info-page">
       {/* Header */}
       <header className="header">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -57,10 +57,10 @@ const HamburgerPage = () => {
 
       {/* Content */}
       <div className="content">
-      <p className="hamburger-category">MAIN COURSE</p>
-        <div className="hamburger-container">
-          <img src={hamburgerImage} alt="Hamburger" className="hamburger-image" />
-          <h2 className="hamburger-name">Hamburger</h2>
+      <p className="food-category">MAIN COURSE</p>
+        <div className="food-container">
+          <img src={hamburgerImage} alt="Hamburger" className="food-image" />
+          <h2 className="food-name">Hamburger</h2>
         </div>
         <div className="info-list">
           <div className="info-row">

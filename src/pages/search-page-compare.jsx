@@ -18,7 +18,7 @@ const items = [
   { name: "Salad", image: saladImage },
 ];
 
-const SearchPage = () => {
+const SearchPageCompare = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const initialSearchTerm = location.state?.searchTerm || ""; // Get search term from state
@@ -100,4 +100,4 @@ const SearchPage = () => {
   );
 };
 
-export default SearchPage;
+export default SearchPageCompare;

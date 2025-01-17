@@ -50,11 +50,10 @@ const SearchPage = () => {
   );
 
   useEffect(() => {
-    if (initialSearchTerm) {
-      setSearchQuery(initialSearchTerm);
-    }
+    setSearchQuery(initialSearchTerm || "");
   }, [initialSearchTerm]);
 
+  
   const handleItemClick = (route) => {
     navigate(route);
   };

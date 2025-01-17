@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
-import "../styles/hamburger-info.css";
+import "../styles/food-info.css";
 
 import pizzaImage from "../images/pizza.jpg"; // Add the path to your pizza image
 
@@ -23,7 +23,7 @@ const PizzaPage = () => {
   };
 
   return (
-    <div className="hamburger-info-page">
+    <div className="food-info-page">
       {/* Header */}
       <header className="header">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -57,10 +57,10 @@ const PizzaPage = () => {
 
       {/* Content */}
       <div className="content">
-      <p className="hamburger-category">STARTER COURSE</p>
-        <div className="hamburger-container">
-          <img src={pizzaImage} alt="Pizza" className="hamburger-image" />
-          <h2 className="hamburger-name">Pizza</h2>
+      <p className="food-category">STARTER COURSE</p>
+        <div className="food-container">
+          <img src={pizzaImage} alt="Pizza" className="food-image" />
+          <h2 className="food-name">Pizza</h2>
         </div>
         <div className="info-list">
           <div className="info-row">
