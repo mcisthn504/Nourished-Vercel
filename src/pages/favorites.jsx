@@ -84,7 +84,7 @@ const FavoritesPage = () => {
           onChange={handleSearch}
         />
         <button className="reset-button" onClick={resetSearch}>
-          Reset
+          Show All
         </button>
       </div>
 
