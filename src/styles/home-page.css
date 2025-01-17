@@ -285,7 +285,8 @@ body {
 
 .documentation-button {
   position: absolute;
-  right: 20px; /* Adjust the position to your preference */
+  right: 25px; /* Adjust the position to your preference */
+  top: 22px;
   font-size: 28px; /* Adjust size */
   transform: scale(1.5);
   color: #000000; /* Color of the icon */

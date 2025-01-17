@@ -1,5 +1,5 @@
 import React from "react";
-//import "../styles/documentation.css";
+import "../styles/documentation.css";
 
 const DocumentationPage = () => {
   return (
