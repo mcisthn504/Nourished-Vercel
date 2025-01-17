@@ -66,7 +66,7 @@
 .action-buttons {
   display: flex;
   justify-content: space-around;
-  padding: 20px;
+  
   width: 100%;
   position: fixed; /* Keep it fixed at the bottom */
   bottom: 60px;
