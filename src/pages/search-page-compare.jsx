@@ -9,6 +9,16 @@ import hamburgerImage from "../images/hamburger.jpg";
 import pizzaHamImage from "../images/pizza_ham.jpg";
 import cheeseburgerImage from "../images/cheeseburger.jpg";
 import saladImage from "../images/salad.jpg";
+import tacosImage from "../images/tacosImage.png"
+import pastaImage from "../images/pastaImage.jpeg";
+import sushiImage from "../images/sushiImage.jpg"; 
+import wingsImage from "../images/wingsImage.jpg"; 
+import friedRiceImage from "../images/friedRiceImage.jpg"; 
+import hotDogImage from "../images/hotDogImage.jpg"; 
+import steakImage from "../images/steakImage.jpg"; 
+import iceCreamImage from "../images/icecreamImage.jpg"; 
+import pancakesImage from "../images/pancakesImage.jpg"; 
+import grilledFishImage from "../images/grilledFishImage.webp"; 
 
 const items = [
   { name: "Pizza", image: pizzaImage },
@@ -16,6 +26,17 @@ const items = [
   { name: "Pizza with ham", image: pizzaHamImage },
   { name: "Cheeseburger", image: cheeseburgerImage },
   { name: "Salad", image: saladImage },
+  { name: "Tacos", image: tacosImage },
+  { name: "Pasta", image: pastaImage },
+  { name: "Sushi", image: sushiImage },
+  { name: "Chicken Wings", image: wingsImage },
+  { name: "Fried Rice", image: friedRiceImage },
+  { name: "Hot Dog", image: hotDogImage },
+  { name: "Steak", image: steakImage },
+  { name: "Ice Cream", image: iceCreamImage },
+  { name: "Pancakes", image: pancakesImage },
+  { name: "Grilled Fish", image: grilledFishImage },
+  
 ];
 
 const SearchPageCompare = () => {

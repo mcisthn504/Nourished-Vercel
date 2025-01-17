@@ -5,9 +5,9 @@ import "../styles/search.css";
 // Images for the items
 import pizzaImage from "../images/pizza.jpg";
 import hamburgerImage from "../images/hamburger.jpg";
-import pizzaHamImage from "../images/pizza_ham.jpg"; // Replace with the correct path
-import cheeseburgerImage from "../images/cheeseburger.jpg"; // Replace with the correct path
-import saladImage from "../images/salad.jpg"; // Replace with the correct path
+import pizzaHamImage from "../images/pizza_ham.jpg";
+import cheeseburgerImage from "../images/cheeseburger.jpg";
+import saladImage from "../images/salad.jpg";
 import tacosImage from "../images/tacosImage.png"
 import pastaImage from "../images/pastaImage.jpeg";
 import sushiImage from "../images/sushiImage.jpg"; 
@@ -16,7 +16,7 @@ import friedRiceImage from "../images/friedRiceImage.jpg";
 import hotDogImage from "../images/hotDogImage.jpg"; 
 import steakImage from "../images/steakImage.jpg"; 
 import iceCreamImage from "../images/icecreamImage.jpg"; 
-import  pancakesImage from "../images/pancakesImage.jpg"; 
+import pancakesImage from "../images/pancakesImage.jpg"; 
 import grilledFishImage from "../images/grilledFishImage.webp"; 
 
 const items = [

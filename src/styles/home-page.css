@@ -258,3 +258,27 @@ body {
 .popup-content button:hover {
   background: #0056b3;
 }
+
+.dropdown-menu {
+  position: fixed; /* Make it fixed to the viewport */
+  margin-top: 100px;
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%); /* Offset to center */
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  max-height: 200px;
+  overflow-y: auto;
+  width: 350px; /* Set a fixed width for consistent appearance */
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for better visibility */
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #f0f0f0;
+}

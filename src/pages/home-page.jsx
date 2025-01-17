@@ -9,6 +9,28 @@ const HomePage = () => {
   const navigate = useNavigate();
   const [hasCompletedChallenge, setHasCompletedChallenge] = useState(false);
   const [popupVisible, setPopupVisible] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredOptions, setFilteredOptions] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  const searchOptions = [
+    "Pizza",
+    "Pizza with ham",
+    "Hamburger",
+    "Cheeseburger",
+    "Salad",
+    "Tacos",
+    "Pasta",
+    "Sushi",
+    "Chicken Wings",
+    "Fried Rice",
+    "Hot Dog",
+    "Steak",
+    "Ice Cream",
+    "Pancakes",
+    "Grilled Fish",
+
+  ];
 
   useEffect(() => {
     // Check if the user has already completed the challenge
@@ -17,7 +39,7 @@ const HomePage = () => {
   }, []);
 
   const handleDailyChallengeClick = () => {
-    if (!hasCompletedChallenge) {
+    if (hasCompletedChallenge) {
       // Show the popup if the challenge is already completed
       setPopupVisible(true);
     } else {
@@ -28,10 +50,30 @@ const HomePage = () => {
     }
   };
 
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setSearchTerm(value);
+
+    if (value) {
+      // Filter options based on input
+      const filtered = searchOptions.filter((option) =>
+        option.toLowerCase().includes(value.toLowerCase())
+      );
+      setFilteredOptions(filtered);
+      setShowDropdown(true);
+    } else {
+      setFilteredOptions([]);
+      setShowDropdown(false);
+    }
+  };
+
+  const handleOptionClick = (option) => {
+    setSearchTerm(option);
+    setShowDropdown(false);
+    navigate("/search", { state: { searchTerm: option } });
+  };
+
   const handleSearchClick = () => {
-    const searchBar = document.querySelector(".search-bar");
-    const searchTerm = searchBar ? searchBar.value : "";
-  
     navigate("/search", { state: { searchTerm } });
   };
 
@@ -41,7 +83,7 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-       <header className="header">
+      <header className="header">
         <div className="logo">
           <h1>NourishED</h1>
         </div>
@@ -56,10 +98,31 @@ const HomePage = () => {
             type="text"
             className="search-bar"
             placeholder="Search food..."
+            value={searchTerm}
+            onChange={handleSearchChange}
           />
           <span className="mic-icon">
             <i className="material-icons">mic</i>
           </span>
+
+          {/* Dropdown Menu */}
+          {showDropdown && (
+            <div className="dropdown-menu">
+              {filteredOptions.length > 0 ? (
+                filteredOptions.map((option, index) => (
+                  <div
+                    key={index}
+                    className="dropdown-item"
+                    onClick={() => handleOptionClick(option)}
+                  >
+                    {option}
+                  </div>
+                ))
+              ) : (
+                <div className="dropdown-item">No results found</div>
+              )}
+            </div>
+          )}
         </div>
       </div>
 
@@ -71,14 +134,26 @@ const HomePage = () => {
           </Link>
         </div>
         <div className="category-tags">
-          <span className="tag"><Link to="/categories/starters" className="see-all-link">
-            Starters </Link></span>
-          <span className="tag"><Link to="/categories/mains" className="see-all-link">
-            Mains </Link></span>
-            <span className="tag"><Link to="/categories/desserts" className="see-all-link">
-            Desserts </Link></span>
-            <span className="tag"><Link to="/categories/appetizers" className="see-all-link">
-            Appetizers </Link></span>
+          <span className="tag">
+            <Link to="/categories/starters" className="see-all-link">
+              Starters
+            </Link>
+          </span>
+          <span className="tag">
+            <Link to="/categories/mains" className="see-all-link">
+              Mains
+            </Link>
+          </span>
+          <span className="tag">
+            <Link to="/categories/desserts" className="see-all-link">
+              Desserts
+            </Link>
+          </span>
+          <span className="tag">
+            <Link to="/categories/appetizers" className="see-all-link">
+              Appetizers
+            </Link>
+          </span>
         </div>
       </div>
 
@@ -90,10 +165,10 @@ const HomePage = () => {
           </div>
         </div>
         <div className="card" onClick={() => navigate("/camera")}>
-            <h3>Take a Pic</h3>
-            <div className="card-content">
-              <img src={TakeAPicImage} alt="Take a Pic" />
-            </div>
+          <h3>Take a Pic</h3>
+          <div className="card-content">
+            <img src={TakeAPicImage} alt="Take a Pic" />
+          </div>
         </div>
         <div className="card" onClick={() => navigate("/compare")}>
           <h3>Compare</h3>
