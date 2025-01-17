@@ -8,13 +8,34 @@ import hamburgerImage from "../images/hamburger.jpg";
 import pizzaHamImage from "../images/pizza_ham.jpg"; // Replace with the correct path
 import cheeseburgerImage from "../images/cheeseburger.jpg"; // Replace with the correct path
 import saladImage from "../images/salad.jpg"; // Replace with the correct path
+import tacosImage from "../images/tacosImage.png"
+import pastaImage from "../images/pastaImage.jpeg";
+import sushiImage from "../images/sushiImage.jpg"; 
+import wingsImage from "../images/wingsImage.jpg"; 
+import friedRiceImage from "../images/friedRiceImage.jpg"; 
+import hotDogImage from "../images/hotDogImage.jpg"; 
+import steakImage from "../images/steakImage.jpg"; 
+import iceCreamImage from "../images/icecreamImage.jpg"; 
+import  pancakesImage from "../images/pancakesImage.jpg"; 
+import grilledFishImage from "../images/grilledFishImage.webp"; 
 
 const items = [
-  { name: "Pizza", image: pizzaImage, route: "/pizza" },
-  { name: "Hamburger", image: hamburgerImage, route: "/hamburger" },
-  { name: "Pizza with ham", image: pizzaHamImage, route: "/pizza-with-ham" },
-  { name: "Cheeseburger", image: cheeseburgerImage, route: "/cheeseburger" },
-  { name: "Salad", image: saladImage, route: "/salad" },
+    { name: "Pizza", image: pizzaImage, route: "/pizza" },
+    { name: "Hamburger", image: hamburgerImage, route: "/hamburger" },
+    { name: "Pizza with ham", image: pizzaHamImage, route: "/pizza-with-ham" },
+    { name: "Cheeseburger", image: cheeseburgerImage, route: "/cheeseburger" },
+    { name: "Salad", image: saladImage, route: "/salad" },
+    { name: "Tacos", image: tacosImage, route: "/tacos" },
+    { name: "Pasta", image: pastaImage, route: "/pasta" },
+    { name: "Sushi", image: sushiImage, route: "/sushi" },
+    { name: "Chicken Wings", image: wingsImage, route: "/chicken-wings" },
+    { name: "Fried Rice", image: friedRiceImage, route: "/fried-rice" },
+    { name: "Hot Dog", image: hotDogImage, route: "/hot-dog" },
+    { name: "Steak", image: steakImage, route: "/steak" },
+    { name: "Ice Cream", image: iceCreamImage, route: "/ice-cream" },
+    { name: "Pancakes", image: pancakesImage, route: "/pancakes" },
+    { name: "Grilled Fish", image: grilledFishImage, route: "/grilled-fish" },
+  
 ];
 
 const SearchPage = () => {
