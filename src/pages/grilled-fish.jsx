@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
-import "../styles/grilled-fish-info.css";
+import "../styles/food-info.css";
 
 import grilledFishImage from "../images/grilledFishImage.webp"; // Add the path to your grilled fish image
 
@@ -23,7 +23,7 @@ const GrilledFishPage = () => {
   };
 
   return (
-    <div className="grilled-fish-info-page">
+    <div className="food-info-page">
       {/* Header */}
       <header className="header">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -57,10 +57,10 @@ const GrilledFishPage = () => {
 
       {/* Content */}
       <div className="content">
-        <p className="grilled-fish-category">MAIN COURSE</p>
-        <div className="grilled-fish-container">
-          <img src={grilledFishImage} alt="Grilled Fish" className="grilled-fish-image" />
-          <h2 className="grilled-fish-name">Grilled Fish</h2>
+        <p className="food-category">MAIN COURSE</p>
+        <div className="food-container">
+          <img src={grilledFishImage} alt="Grilled Fish" className="food-image" />
+          <h2 className="food-name">Grilled Fish</h2>
         </div>
         <div className="info-list">
           <div className="info-row">

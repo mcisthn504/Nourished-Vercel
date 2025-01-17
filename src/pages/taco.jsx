@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
-import "../styles/taco-info.css";
+import "../styles/food-info.css";
 
 import tacoImage from "../images/tacosImage.png"; // Add the path to your taco image
 
@@ -23,7 +23,7 @@ const TacoPage = () => {
   };
 
   return (
-    <div className="taco-info-page">
+    <div className="food-info-page">
       {/* Header */}
       <header className="header">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -57,10 +57,10 @@ const TacoPage = () => {
 
       {/* Content */}
       <div className="content">
-        <p className="taco-category">MAIN COURSE</p>
-        <div className="taco-container">
-          <img src={tacoImage} alt="Taco" className="taco-image" />
-          <h2 className="taco-name">Taco</h2>
+        <p className="food-category">MAIN COURSE</p>
+        <div className="food-container">
+          <img src={tacoImage} alt="Taco" className="food-image" />
+          <h2 className="food-name">Taco</h2>
         </div>
         <div className="info-list">
           <div className="info-row">

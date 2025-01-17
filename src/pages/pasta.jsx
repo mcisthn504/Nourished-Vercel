@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
-import "../styles/pasta-info.css";
+import "../styles/food-info.css";
 
 import pastaImage from "../images/pastaImage.jpeg"; // Add the path to your pasta image
 
@@ -23,7 +23,7 @@ const PastaPage = () => {
   };
 
   return (
-    <div className="pasta-info-page">
+    <div className="food-info-page">
       {/* Header */}
       <header className="header">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -57,10 +57,10 @@ const PastaPage = () => {
 
       {/* Content */}
       <div className="content">
-        <p className="pasta-category">MAIN COURSE</p>
-        <div className="pasta-container">
-          <img src={pastaImage} alt="Pasta" className="pasta-image" />
-          <h2 className="pasta-name">Pasta</h2>
+        <p className="food-category">MAIN COURSE</p>
+        <div className="food-container">
+          <img src={pastaImage} alt="Pasta" className="food-image" />
+          <h2 className="food-name">Pasta</h2>
         </div>
         <div className="info-list">
           <div className="info-row">

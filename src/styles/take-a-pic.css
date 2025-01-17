@@ -82,7 +82,8 @@
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  margin-bottom: 10%;
+  margin-left: 10px;
 }
 
 .secondary-button:hover {
@@ -98,7 +99,8 @@
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  margin-bottom: 10%;
+  margin-right: 10px;
 }
 
 .primary-button:hover {
@@ -118,9 +120,10 @@
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: absolute;
-  bottom: 100%; /* Adjust for spacing from the bottom */
+  bottom: 110%; /* Adjust for spacing from the bottom */
   left: 50%;
   transform: translateX(-50%);
+  margin-bottom: 10%;
 }
 
 .capture-button .material-icons {

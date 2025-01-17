@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
-import "../styles/pancakes-info.css";
+import "../styles/food-info.css";
 
 import pancakesImage from "../images/pancakesImage.jpg"; // Add the path to your pancakes image
 
@@ -23,7 +23,7 @@ const PancakesPage = () => {
   };
 
   return (
-    <div className="pancakes-info-page">
+    <div className="food-info-page">
       {/* Header */}
       <header className="header">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -57,10 +57,10 @@ const PancakesPage = () => {
 
       {/* Content */}
       <div className="content">
-        <p className="pancakes-category">BREAKFAST</p>
-        <div className="pancakes-container">
-          <img src={pancakesImage} alt="Pancakes" className="pancakes-image" />
-          <h2 className="pancakes-name">Pancakes</h2>
+        <p className="food-category">BREAKFAST</p>
+        <div className="food-container">
+          <img src={pancakesImage} alt="Pancakes" className="food-image" />
+          <h2 className="food-name">Pancakes</h2>
         </div>
         <div className="info-list">
           <div className="info-row">

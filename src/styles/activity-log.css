@@ -1,6 +1,6 @@
 .activity-log {
     height: auto;
-    padding-bottom: 5vh;
+    padding-bottom: 6vh;
   }
   
   .header {
@@ -46,9 +46,10 @@
     background-color: white;
     color: #ff7043;
     border-radius: 20px;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-right: 15px;
   }
   
   .clear-log-button:hover {

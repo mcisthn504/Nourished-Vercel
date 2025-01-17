@@ -13,11 +13,14 @@ const DocumentationPage = () => {
         
       </header>
 
-      <main className="content">
+      <main className="content-doc">
         <section className="section">
           <h2>About the AI</h2>
           <p>
-            NourishED utilizes state-of-the-art artificial intelligence to provide personalized insights and suggestions about food and nutrition. The AI leverages natural language processing (NLP) and image recognition to assist users in exploring new recipes, comparing nutritional values, and gaining a deeper understanding of their food choices. By analyzing vast databases of culinary and nutritional data, the AI delivers accurate, reliable, and context-aware information.
+            NourishED utilizes state-of-the-art artificial intelligence to provide personalized insights and suggestions about food and nutrition.
+            The AI leverages natural language processing (NLP) and image recognition to assist users in exploring food knowledge, comparing nutritional values,
+            and gaining a deeper understanding of their food choices. By analyzing vast databases of culinary and nutritional data, the AI delivers accurate,
+            reliable, and context-aware information.
           </p>
         </section>
 
@@ -48,7 +51,7 @@ const DocumentationPage = () => {
             <li>Develop cooking skills and learn about diverse cuisines.</li>
           </ul>
           <p>
-            Whether youre a food enthusiast or someone striving for a healthier lifestyle, NourishED provides the tools and resources to support your journey.
+            Whether you{"'"}re a food enthusiast or someone striving for a healthier lifestyle, NourishED provides the tools and resources to support your journey.
           </p>
         </section>
       </main>

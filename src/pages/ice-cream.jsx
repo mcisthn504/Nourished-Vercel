@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
-import "../styles/ice-cream-info.css";
+import { useFavorites } from "../contexts/FavoritesContext";
+import "../styles/food-info.css";
 
-import iceCreamImage from "../images/icecreamImage.jpg"; // Add the path to your ice cream image
+import iceCreamImage from "../images/icecreamImage.jpg";
 
 const IceCreamPage = () => {
   const navigate = useNavigate();
@@ -23,7 +23,7 @@ const IceCreamPage = () => {
   };
 
   return (
-    <div className="ice-cream-info-page">
+    <div className="food-info-page">
       {/* Header */}
       <header className="header">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -57,10 +57,10 @@ const IceCreamPage = () => {
 
       {/* Content */}
       <div className="content">
-        <p className="ice-cream-category">DESSERT</p>
-        <div className="ice-cream-container">
-          <img src={iceCreamImage} alt="Ice Cream" className="ice-cream-image" />
-          <h2 className="ice-cream-name">Ice Cream</h2>
+        <p className="food-category">DESSERT</p>
+        <div className="food-container">
+          <img src={iceCreamImage} alt="Ice Cream" className="food-image" />
+          <h2 className="food-name">Ice Cream</h2>
         </div>
         <div className="info-list">
           <div className="info-row">

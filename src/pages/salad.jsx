@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
-import "../styles/salad-info.css";
+import "../styles/food-info.css";
 
 import saladImage from "../images/salad.jpg"; // Replace with the correct path
 
@@ -23,7 +23,7 @@ const SaladPage = () => {
   };
 
   return (
-    <div className="salad-info-page">
+    <div className="food-info-page">
       {/* Header */}
       <header className="header">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -57,10 +57,10 @@ const SaladPage = () => {
 
       {/* Content */}
       <div className="content">
-        <p className="salad-category">APPETIZER</p>
-        <div className="salad-container">
-          <img src={saladImage} alt="Salad" className="salad-image" />
-          <h2 className="salad-name">Salad</h2>
+        <p className="food-category">APPETIZER</p>
+        <div className="food-container">
+          <img src={saladImage} alt="Salad" className="food-image" />
+          <h2 className="food-name">Salad</h2>
         </div>
         <div className="info-list">
           <div className="info-row">

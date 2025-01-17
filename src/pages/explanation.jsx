@@ -144,8 +144,8 @@ const ExplanationPage = () => {
           <div className="modal">
             <p>By closing the quiz now, you will lose all your progress.</p>
             <div className="modal-actions">
-              <button onClick={() => setShowModal(false)}>Cancel</button>
-              <button className="cancel-btn" onClick={confirmCloseQuiz}>
+              <button className="keep-q-btn" onClick={() => setShowModal(false)}>Keep Going</button>
+              <button className="close-q-btn" onClick={confirmCloseQuiz}>
                 Close Quiz
               </button>
             </div>

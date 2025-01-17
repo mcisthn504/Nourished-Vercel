@@ -1,10 +1,10 @@
 import React from "react";
-import hotDogImage from "../images/hotDogImage.jpg"; // Ensure the image path is correct
-import "../styles/hotdog.css"; // CSS specific to the hot dog page
+import hotDogImage from "../images/hotDogImage.jpg";
+import "../styles/food-info.css";
 
 const HotDogInfoPage = () => {
   return (
-    <div className="hotdog-info-page">
+    <div className="food-info-page">
       {/* Header */}
       <header className="header">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -17,14 +17,14 @@ const HotDogInfoPage = () => {
       </header>
 
       {/* Hot Dog Image and Name */}
-      <div className="hotdog-container">
+      <div className="food-container">
         <img
           src={hotDogImage}
           alt="Hot Dog"
-          className="hotdog-image"
+          className="food-image"
         />
-        <h2 className="hotdog-name">Hot Dog</h2>
-        <p className="hotdog-category">Fast Food</p>
+        <h2 className="food-name">Hot Dog</h2>
+        <p className="food-category">Fast Food</p>
       </div>
 
       {/* Information List */}

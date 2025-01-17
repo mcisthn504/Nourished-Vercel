@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
-import "../styles/pizza-with-ham-info.css";
+import "../styles/food-info.css";
 
 import pizzaHamImage from "../images/pizza_ham.jpg"; // Add the path to your pizza with ham image
 
@@ -23,7 +23,7 @@ const PizzaWithHamPage = () => {
   };
 
   return (
-    <div className="pizza-with-ham-info-page">
+    <div className="food-info-page">
       {/* Header */}
       <header className="header">
         <button className="back-button" onClick={() => window.history.back()}>
@@ -57,14 +57,14 @@ const PizzaWithHamPage = () => {
 
       {/* Content */}
       <div className="content">
-        <p className="pizza-with-ham-category">MAIN COURSE</p>
-        <div className="pizza-with-ham-container">
+        <p className="food-category">MAIN COURSE</p>
+        <div className="food-container">
           <img
             src={pizzaHamImage}
             alt="Pizza with Ham"
-            className="pizza-with-ham-image"
+            className="food-image"
           />
-          <h2 className="pizza-with-ham-name">Pizza with Ham</h2>
+          <h2 className="food-name">Pizza with Ham</h2>
         </div>
         <div className="info-list">
           <div className="info-row">

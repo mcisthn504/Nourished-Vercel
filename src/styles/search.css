@@ -1,7 +1,6 @@
-.search-page {
-    display: flex;
-    flex-direction: column;
+.search-page-search {
     align-items: center;
+    margin-bottom: 15vh;
   }
   
   .search-bar-container-search {

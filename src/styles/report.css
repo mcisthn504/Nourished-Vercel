@@ -67,34 +67,34 @@
     gap: 20px; /* Add space between Cancel and Confirm buttons */
   }
   
-  .cancel-button,
-  .confirm-button {
+  .cancel-button-report,
+  .confirm-button-report {
     flex: 1;
-    margin: 0 0px;
-    
+    margin: 70px 15px;
+    padding: 20px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
   
-  .confirm-button:disabled {
+  .confirm-button-report:disabled {
     background-color: #cccccc;
     color: #585858;
     cursor: not-allowed;
   }
   
 
-  .cancel-button {
+  .cancel-button-report {
     background-color: #f8d7da;
     color: #721c24;
   }
   
-  .cancel-button:hover {
+  .cancel-button-report:hover {
     background-color: #f5c6cb;
   }
   
-  .confirm-button {
+  .confirm-button-report {
     background-color: #d4edda;
     color: #155724;
   }
@@ -115,11 +115,11 @@
   
   /* Popup Content */
   .popup-content {
-    background-color: rgb(255, 163, 141);
-    
+    background-color: rgb(255 140 46);
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
   }
   
   .popup-content h2 {

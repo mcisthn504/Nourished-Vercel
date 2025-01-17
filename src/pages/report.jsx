@@ -33,7 +33,7 @@ const ReportPage = () => {
         <button className="back-button" onClick={handleCancel}>
           <i className="material-icons">arrow_back</i>
         </button>
-        <h1 className="title">Report a Problem</h1>
+        <h1 className="title">Report Mistake</h1>
       </header>
 
       {/* Content */}
@@ -75,11 +75,11 @@ const ReportPage = () => {
         
             {/* Action Buttons */}
             <div className="action-buttons">
-            <button className="cancel-button" onClick={handleCancel}>
+            <button className="cancel-button-report" onClick={handleCancel}>
                 Cancel
             </button>
             <button
-                className="confirm-button"
+                className="confirm-button-report"
                 onClick={handleConfirm}
                 disabled={!selectedProblem} // Disable if no problem is selected
             >
