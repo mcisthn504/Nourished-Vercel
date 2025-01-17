@@ -5,7 +5,8 @@ import DailyChallenge from "./pages/daily-challenge";
 import ExplanationPage from "./pages/explanation";
 import TakePicturePage from "./pages/take-a-pic";
 import ComparePage from "./pages/compare";
-import CompareResultPage from "./pages/compare-result-page"; // Import the new page
+import CompareResultPage from "./pages/compare-result-page";
+import DocumentationPage from "./pages/documentation";
 import HamburgerPage from "./pages/hamburger";
 import PizzaPage from "./pages/pizza";
 import TacoPage from "./pages/taco.jsx";
@@ -138,6 +139,14 @@ const App = () => {
               element={
                 <Layout>
                   <DailyChallenge />
+                </Layout>
+              }
+            />
+            <Route
+              path="/documentation"
+              element={
+                <Layout>
+                  <DocumentationPage />
                 </Layout>
               }
             />

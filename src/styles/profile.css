@@ -4,6 +4,7 @@
   flex-direction: column;
   height: 100vh;
   background-color: #fffbea;
+  padding: 0;
 }
 
 /* Header styling */
@@ -70,13 +71,15 @@
 .edit-button {
   background: none;
   border: none;
-  color: #007bff;
+  transform: scale(1.5);
+  margin-right: 5px;
+  color: #000000;
   cursor: pointer;
   font-size: 40px;
 }
 
 .edit-button:hover {
-  color: #0056b3;
+  color: #000000;
 }
 
 .editable-input {

@@ -282,3 +282,16 @@ body {
 .dropdown-item:hover {
   background: #f0f0f0;
 }
+
+.documentation-button {
+  position: absolute;
+  right: 20px; /* Adjust the position to your preference */
+  font-size: 28px; /* Adjust size */
+  transform: scale(1.5);
+  color: #000000; /* Color of the icon */
+  text-decoration: none; /* Remove underline */
+}
+
+.documentation-button:hover {
+  color: #ff5722; /* Change color on hover */
+}

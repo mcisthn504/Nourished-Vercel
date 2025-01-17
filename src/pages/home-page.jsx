@@ -33,8 +33,8 @@ const HomePage = () => {
   ];
 
   useEffect(() => {
-    // Check if the user has already completed the challenge
-    const completed = localStorage.getItem("hasCompletedChallenge") === "true";
+    // Check if the user has already completed the challenge                     // WARNING!!
+    const completed = localStorage.getItem("hasCompletedChallenge") === "false"; //CHANGE TO "true" in final version, should be false only in testing
     setHasCompletedChallenge(completed);
   }, []);
 
@@ -87,6 +87,11 @@ const HomePage = () => {
         <div className="logo">
           <h1>NourishED</h1>
         </div>
+       
+       {/* Documentation Button */}
+       <Link to="/documentation" className="documentation-button">
+          <i className="material-icons">description</i> {/* Document icon */}
+        </Link>
       </header>
 
       <div className="search-section">
