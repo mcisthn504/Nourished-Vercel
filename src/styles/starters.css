@@ -1,7 +1,6 @@
 .mains-page {
     font-family: Arial, sans-serif;
     background-color: #fff5e1;
-    min-height: 100vh;
   }
   
   .header {
@@ -23,6 +22,8 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
     margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     
   }
   
@@ -57,7 +58,6 @@
 .starters-page {
     font-family: Arial, sans-serif;
     background-color: #fff5e1;
-    min-height: 100vh;
   }
   
   .starters-list {
@@ -65,6 +65,8 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 20px;
     margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
     
   }
   

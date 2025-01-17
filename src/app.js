@@ -278,8 +278,22 @@ const App = () => {
                 </Layout>
               }
             />
-            <Route path="/categories/starters" element={<StartersPage />} />
-            <Route path="/categories/mains" element={<MainsPage />} />
+            <Route
+              path="/categories/starters"
+              element={
+                <Layout>
+                  <StartersPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/categories/mains"
+              element={
+                <Layout>
+                  <MainsPage />
+                </Layout>
+              }
+            />
             <Route
               path="/report"
               element={

@@ -40,15 +40,6 @@
     position: relative;
   }
   
-  .dropdown-menu {
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-  }
-  
   .dropdown-item {
     padding: 10px 20px;
     border: none;

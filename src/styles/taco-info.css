@@ -97,16 +97,6 @@
     font-size: 24px;
 }
 
-.dropdown-menu {
-    position: absolute;
-    top: 40px;
-    right: 0;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
-    z-index: 1000;
-}
-
 .dropdown-item {
     padding: 10px 15px;
     cursor: pointer;

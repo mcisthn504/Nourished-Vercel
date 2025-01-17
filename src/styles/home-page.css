@@ -285,14 +285,14 @@ body {
 
 .documentation-button {
   position: absolute;
-  right: 25px; /* Adjust the position to your preference */
+  right: 25px;
   top: 22px;
-  font-size: 28px; /* Adjust size */
+  font-size: 28px;
   transform: scale(1.5);
-  color: #000000; /* Color of the icon */
-  text-decoration: none; /* Remove underline */
+  color: #000000;
+  text-decoration: none;
 }
 
 .documentation-button:hover {
-  color: #ff5722; /* Change color on hover */
+  color: #ff5722;
 }
