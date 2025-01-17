@@ -115,9 +115,8 @@
   
   .dropdown-menu {
     position: absolute;
-    top: -60px; /* Adjust as necessary */
-    left: -20px;
-    right: 40px;
+    top: 40px; /* Adjust as necessary */
+    right: 0px;
     background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 4px;

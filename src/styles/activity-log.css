@@ -1,7 +1,6 @@
 .activity-log {
-    max-width: 600px;
-    margin: 0 auto;
-    font-family: 'Arial', sans-serif;
+    height: auto;
+    padding-bottom: 5vh;
   }
   
   .header {
@@ -59,7 +58,8 @@
   
   /* Log Entry Styling */
   .log-list {
-    margin-top: 20px;
+    margin-top: 10px;
+    padding: 0px 21px 0px 21px;
   }
   
   .log-entry {

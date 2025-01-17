@@ -112,19 +112,19 @@ const HomePage = () => {
 
           {/* Dropdown Menu */}
           {showDropdown && (
-            <div className="dropdown-menu">
+            <div className="dropdown-menu-home">
               {filteredOptions.length > 0 ? (
                 filteredOptions.map((option, index) => (
                   <div
                     key={index}
-                    className="dropdown-item"
+                    className="dropdown-item-home"
                     onClick={() => handleOptionClick(option)}
                   >
                     {option}
                   </div>
                 ))
               ) : (
-                <div className="dropdown-item">No results found</div>
+                <div className="dropdown-item-home">No results found</div>
               )}
             </div>
           )}

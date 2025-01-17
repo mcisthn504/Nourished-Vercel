@@ -259,11 +259,12 @@ body {
   background: #0056b3;
 }
 
-.dropdown-menu {
+.dropdown-menu-home {
   position: fixed; /* Make it fixed to the viewport */
-  margin-top: 100px;
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%); /* Offset to center */
+  margin-top: 50px;
+  left: 7%;
+  transform: translateX(-50%); /* Offset to center */
+  transform: translateY(+50%);
   background: white;
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -274,12 +275,12 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for better visibility */
 }
 
-.dropdown-item {
+.dropdown-item-home {
   padding: 10px;
   cursor: pointer;
 }
 
-.dropdown-item:hover {
+.dropdown-item-home:hover {
   background: #f0f0f0;
 }
 
