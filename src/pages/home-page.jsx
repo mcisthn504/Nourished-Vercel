@@ -150,14 +150,14 @@ const HomePage = () => {
             </Link>
           </span>
           <span className="tag">
-            <h1 className="see-all-link">
+            <Link to="/categories/desserts" className="see-all-link">
               Desserts
-            </h1>
+            </Link>
           </span>
           <span className="tag">
-            <h1 className="see-all-link">
+            <Link to="/categories/appetizers" className="see-all-link">
               Appetizers
-            </h1>
+            </Link>
           </span>
         </div>
       </div>

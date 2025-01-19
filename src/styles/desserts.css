@@ -1,0 +1,64 @@
+.desserts-page {
+    padding: 16px;
+    background-color: #fff8e1;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    background-color: #ff7043;
+    padding: 8px;
+    color: white;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 16px;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .desserts-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  
+  .dessert-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    text-align: center;
+    transition: transform 0.2s;
+  }
+  
+  .dessert-item:hover {
+    transform: translateY(-4px);
+  }
+  
+  .dessert-image {
+    width: 100%;
+    height: auto;
+    max-width: 120px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .dessert-name {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
