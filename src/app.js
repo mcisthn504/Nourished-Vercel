@@ -40,6 +40,13 @@ import TakeAPicCompare from "./pages/take-a-pic-compare.jsx";
 import ActivityLog from "./pages/activity-log";
 import StartersPage from "./pages/starters";
 import MainsPage from "./pages/mains";
+import DessertsPage from "./pages/desserts.jsx";
+import AppetizersPage from "./pages/appetizers.jsx";
+import SnacksPage from "./pages/snacks.jsx";
+import VegetarianPage from "./pages/vegeterian.jsx";
+import VeganPage from "./pages/vegan.jsx";
+import GlutenFreePage from "./pages/glutenFree.jsx";
+import LowCaloriePage from "./pages/lowCalorie.jsx";
 
 
 
@@ -291,6 +298,62 @@ const App = () => {
               element={
                 <Layout>
                   <MainsPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/categories/desserts"
+              element={
+                <Layout>
+                  <DessertsPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/categories/appetizers"
+              element={
+                <Layout>
+                  <AppetizersPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/categories/snacks"
+              element={
+                <Layout>
+                  <SnacksPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/categories/vegetarian"
+              element={
+                <Layout>
+                  <VegetarianPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/categories/vegan"
+              element={
+                <Layout>
+                  <VeganPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/categories/glutenFree"
+              element={
+                <Layout>
+                  <GlutenFreePage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/categories/low-calorie"
+              element={
+                <Layout>
+                  <LowCaloriePage />
                 </Layout>
               }
             />

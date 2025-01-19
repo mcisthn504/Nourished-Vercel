@@ -11,7 +11,7 @@ const CategoriesPage = () => {
   };
 
   const handleCategoryClick = (category) => {
-    if (category === "starters" || category === "mains") {
+    if (category === "starters" || category === "mains"|| category === "desserts"|| category === "appetizers"|| category === "snacks"|| category === "vegetarian"||category === "vegan"|| category === "glutenFree"|| category === "low-calorie") {
       navigate(`/categories/${category}`);
     } else {
       setShowPopup(true); // Show pop-up for unavailable categories
@@ -31,7 +31,7 @@ const CategoriesPage = () => {
     { name: "Snacks", icon: "local_cafe", key: "snacks" },
     { name: "Vegetarian", icon: "grass", key: "vegetarian" },
     { name: "Vegan", icon: "eco", key: "vegan" },
-    { name: "Gluten Free", icon: "no_meals", key: "gluten-free" },
+    { name: "Gluten Free", icon: "no_meals", key: "glutenFree" },
     { name: "Low Calorie", icon: "fitness_center", key: "low-calorie" },
   ];
 

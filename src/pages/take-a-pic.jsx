@@ -6,6 +6,7 @@ const TakeAPic = () => {
   const navigate = useNavigate();
   const [isPictureTaken, setIsPictureTaken] = useState(false);
   const [photo, setPhoto] = useState(null);
+  const [isProcessing, setIsProcessing] = useState(false); // State for popup
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -61,16 +62,21 @@ const TakeAPic = () => {
   };
 
   const analyzePicture = () => {
-    // Save to activity log
-    const activityLog = JSON.parse(localStorage.getItem("activityLog")) || [];
-    activityLog.push({
-      type: "Pic Analysis",
-      details: `Hamburger`,
-      timestamp: new Date().toLocaleString(),
-      foodResult: "Hamburger", // Pass the detected food name
-    });
-    localStorage.setItem("activityLog", JSON.stringify(activityLog));
-    navigate("/hamburger");
+    setIsProcessing(true); // Show popup
+    setTimeout(() => {
+      // Save to activity log
+      const activityLog = JSON.parse(localStorage.getItem("activityLog")) || [];
+      activityLog.push({
+        type: "Pic Analysis",
+        details: `Hamburger`,
+        timestamp: new Date().toLocaleString(),
+        foodResult: "Hamburger", // Pass the detected food name
+      });
+      localStorage.setItem("activityLog", JSON.stringify(activityLog));
+
+      setIsProcessing(false); // Hide popup
+      navigate("/hamburger");
+    }, 2000); // Wait for 2 seconds
   };
 
   return (
@@ -97,6 +103,13 @@ const TakeAPic = () => {
           height="480"
         ></canvas>
       </div>
+
+      {/* Popup for processing */}
+      {isProcessing && (
+        <div className="processing-popup">
+          <p>Processing image...</p>
+        </div>
+      )}
 
       {/* Buttons */}
       <div className="action-buttons">

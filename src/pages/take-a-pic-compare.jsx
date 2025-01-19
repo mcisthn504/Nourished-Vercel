@@ -11,6 +11,7 @@ const TakeAPic = () => {
   const { setLeftPhoto, setRightPhoto } = usePhotoContext(); // Use the context
   const [isPictureTaken, setIsPictureTaken] = useState(false);
   const [photo, setPhoto] = useState(null);
+  const [isProcessing, setIsProcessing] = useState(false); // State for popup
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -55,12 +56,16 @@ const TakeAPic = () => {
   };
 
   const savePicture = () => {
-    if (side === "left") {
-      setLeftPhoto(photo);
-    } else if (side === "right") {
-      setRightPhoto(photo);
-    }
-    navigate("/compare");
+    setIsProcessing(true); // Show popup
+    setTimeout(() => {
+      if (side === "left") {
+        setLeftPhoto(photo);
+      } else if (side === "right") {
+        setRightPhoto(photo);
+      }
+      setIsProcessing(false); // Hide popup
+      navigate("/compare");
+    }, 2000); // Wait for 2 seconds
   };
 
   return (
@@ -80,6 +85,13 @@ const TakeAPic = () => {
         )}
         <canvas ref={canvasRef} style={{ display: "none" }} width="640" height="480"></canvas>
       </div>
+
+      {/* Popup for processing */}
+      {isProcessing && (
+        <div className="processing-popup">
+          <p>The image is being processed...</p>
+        </div>
+      )}
 
       <div className="action-buttons">
         {!isPictureTaken ? (
