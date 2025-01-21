@@ -74,7 +74,7 @@ const TakeAPic = () => {
         <button className="back-button" onClick={() => navigate("/compare")}>
           <i className="material-icons">arrow_back</i>
         </button>
-        <h1>Take a Picture</h1>
+        <h1>Take a Pic</h1>
       </header>
 
       <div className="camera-container">
