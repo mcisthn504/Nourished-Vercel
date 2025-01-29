@@ -4,7 +4,6 @@ import "../styles/desserts.css";
 
 import saladImage from "../images/salad.jpg";
 import tacosImage from "../images/tacosImage.png";
-import grilledVegetablesImage from "../images/grilledFishImage.webp"; // Replace with an actual vegan image
 import citrusImage from "../images/citrus.png"; // Placeholder for a vegan dessert
 
 const VeganPage = () => {
@@ -15,11 +14,16 @@ const VeganPage = () => {
   };
 
   const veganDishes = [
-    { name: "Fresh Salad", image: saladImage },
-    { name: "Vegan Tacos", image: tacosImage },
-    { name: "Grilled Vegetables", image: grilledVegetablesImage },
-    { name: "Citrus Delight", image: citrusImage },
+    { name: "Fresh Salad", image: saladImage, path: "/salad" },
+    { name: "Vegan Tacos", image: tacosImage, path: "/taco-vegan" },
+    { name: "Citrus Delight", image: citrusImage, path: "/citrus-cake" },
   ];
+
+  const handleNavigate = (path) => {
+    if (path) {
+      navigate(path);
+    }
+  };
 
   return (
     <div className="desserts-page">
@@ -34,7 +38,12 @@ const VeganPage = () => {
       {/* Vegan Dishes List */}
       <div className="desserts-list">
         {veganDishes.map((dish, index) => (
-          <div className="dessert-item" key={index}>
+          <div
+            className="dessert-item"
+            key={index}
+            onClick={() => handleNavigate(dish.path)}
+            style={{ cursor: "pointer" }}
+          >
             <img
               src={dish.image}
               alt={dish.name}
@@ -49,3 +58,4 @@ const VeganPage = () => {
 };
 
 export default VeganPage;
+

@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/desserts.css";
+import "../styles/desserts.css"; // Update this if the file path or style name differs
 
+// Import appetizer images
 import wingsImage from "../images/chickenWingsImage.jpg";
 import saladImage from "../images/salad.jpg";
 import friesImage from "../images/potatoes.png"; // Assuming this is for fries or roasted potatoes
@@ -14,12 +15,20 @@ const AppetizersPage = () => {
     navigate("/categories");
   };
 
+  // Define the appetizers array with their navigation paths
   const appetizers = [
-    { name: "Chicken Wings", image: wingsImage },
-    { name: "Salad", image: saladImage },
-    { name: "Potatoes", image: friesImage },
-    { name: "Fried Rice", image: friedRiceImage },
+    { name: "Chicken Wings", image: wingsImage, path: "/chicken-wings" },
+    { name: "Salad", image: saladImage, path: "/salad" },
+    { name: "Potatoes", image: friesImage, path: "/potatoes" }, 
+    { name: "Fried Rice", image: friedRiceImage, path: "/fried-rice" },
   ];
+
+  // Function to handle navigation on card click
+  const handleNavigate = (path) => {
+    if (path) {
+      navigate(path);
+    }
+  };
 
   return (
     <div className="desserts-page">
@@ -34,7 +43,15 @@ const AppetizersPage = () => {
       {/* Appetizers List */}
       <div className="desserts-list">
         {appetizers.map((appetizer, index) => (
-          <div className="dessert-item" key={index}>
+          <div
+            className="dessert-item"
+            key={index}
+            onClick={() => handleNavigate(appetizer.path)}
+            style={{
+              cursor: appetizer.path ? "pointer" : "not-allowed",
+              opacity: appetizer.path ? 1 : 0.6,
+            }}
+          >
             <img
               src={appetizer.image}
               alt={appetizer.name}

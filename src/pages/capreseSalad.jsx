@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/food-info.css";
 
-import hotDogImage from "../images/hotDogImage.jpg"; // Add the path to your hot dog image
+import capreseSaladImage from "../images/starters3.jpg"; // Add the correct path to your caprese salad image
 
-const HotDogPage = () => {
+const CapreseSaladPage = () => {
   const navigate = useNavigate();
   const { favorites, toggleFavorite } = useFavorites(); // Use the context
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for dropdown menu
 
-  // Check if the hot dog is marked as favorite
-  const isFavorite = favorites.includes("hot dog");
+  // Check if caprese salad is marked as a favorite
+  const isFavorite = favorites.includes("caprese salad");
 
   const handleFavoriteClick = () => {
-    toggleFavorite("hot dog"); // Toggle the favorite status for "hot dog"
+    toggleFavorite("caprese salad"); // Toggle the favorite status for "caprese salad"
   };
 
   const handleReportMistake = () => {
@@ -58,36 +58,36 @@ const HotDogPage = () => {
       {/* Content */}
       <div className="content">
         <div className="food-container">
-          <img src={hotDogImage} alt="Hot Dog" className="food-image" />
-          <h2 className="food-name">Hot Dog</h2>
+          <img src={capreseSaladImage} alt="Caprese Salad" className="food-image" />
+          <h2 className="food-name">Caprese Salad</h2>
         </div>
         <div className="info-list">
           <div className="info-row">
             <h3>Ingredients</h3>
-            <p>Bun, Sausage, Mustard, Ketchup, Onions, Relish</p>
+            <p>Tomatoes, Fresh Mozzarella, Basil, Olive Oil, Salt, Pepper</p>
           </div>
           <div className="info-row">
             <h3>Calories</h3>
-            <p>300 kcal</p>
+            <p>250 kcal per serving</p>
           </div>
           <div className="info-row">
             <h3>Nutrients</h3>
-            <p>Protein 12g, Carbs 28g, Fat 15g</p>
+            <p>Protein 8g, Carbs 6g, Fat 20g</p>
           </div>
           <div className="info-row">
             <h3>Macros</h3>
-            <p>Protein 20%, Carbs 50%, Fat 30%</p>
+            <p>Protein 12%, Carbs 15%, Fat 73%</p>
           </div>
           <div className="info-row">
             <h3>Sodium</h3>
-            <p>700mg</p>
+            <p>300mg</p>
           </div>
           <div className="info-row">
             <h3>History</h3>
             <p>
-              The hot dog originated in Germany and was brought to the United States
-              by German immigrants. It became popular at baseball games and fairs,
-              quickly becoming an iconic fast food item.
+              The Caprese Salad originates from the Italian island of Capri. It is a
+              simple and refreshing dish that highlights the flavors of fresh
+              ingredients and is a staple in Italian cuisine.
             </p>
           </div>
         </div>
@@ -96,5 +96,4 @@ const HotDogPage = () => {
   );
 };
 
-export default HotDogPage;
-
+export default CapreseSaladPage;

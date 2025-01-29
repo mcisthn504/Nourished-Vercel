@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/food-info.css";
 
-import hotDogImage from "../images/hotDogImage.jpg"; // Add the path to your hot dog image
+import potatoesImage from "../images/potatoes.png"; // Add the correct path to your potatoes image
 
-const HotDogPage = () => {
+const PotatoesPage = () => {
   const navigate = useNavigate();
   const { favorites, toggleFavorite } = useFavorites(); // Use the context
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for dropdown menu
 
-  // Check if the hot dog is marked as favorite
-  const isFavorite = favorites.includes("hot dog");
+  // Check if potatoes are marked as a favorite
+  const isFavorite = favorites.includes("potatoes");
 
   const handleFavoriteClick = () => {
-    toggleFavorite("hot dog"); // Toggle the favorite status for "hot dog"
+    toggleFavorite("potatoes"); // Toggle the favorite status for "potatoes"
   };
 
   const handleReportMistake = () => {
@@ -58,36 +58,36 @@ const HotDogPage = () => {
       {/* Content */}
       <div className="content">
         <div className="food-container">
-          <img src={hotDogImage} alt="Hot Dog" className="food-image" />
-          <h2 className="food-name">Hot Dog</h2>
+          <img src={potatoesImage} alt="Potatoes" className="food-image" />
+          <h2 className="food-name">Potatoes</h2>
         </div>
         <div className="info-list">
           <div className="info-row">
             <h3>Ingredients</h3>
-            <p>Bun, Sausage, Mustard, Ketchup, Onions, Relish</p>
+            <p>Potatoes, Olive Oil, Salt, Spices</p>
           </div>
           <div className="info-row">
             <h3>Calories</h3>
-            <p>300 kcal</p>
+            <p>150 kcal per serving</p>
           </div>
           <div className="info-row">
             <h3>Nutrients</h3>
-            <p>Protein 12g, Carbs 28g, Fat 15g</p>
+            <p>Protein 3g, Carbs 30g, Fat 2g</p>
           </div>
           <div className="info-row">
             <h3>Macros</h3>
-            <p>Protein 20%, Carbs 50%, Fat 30%</p>
+            <p>Protein 6%, Carbs 80%, Fat 14%</p>
           </div>
           <div className="info-row">
             <h3>Sodium</h3>
-            <p>700mg</p>
+            <p>200mg</p>
           </div>
           <div className="info-row">
             <h3>History</h3>
             <p>
-              The hot dog originated in Germany and was brought to the United States
-              by German immigrants. It became popular at baseball games and fairs,
-              quickly becoming an iconic fast food item.
+              Potatoes originated in South America and were first cultivated by
+              the Inca people in Peru. They are now a staple food around the world
+              and are prepared in various ways, from baked to fried.
             </p>
           </div>
         </div>
@@ -96,5 +96,4 @@ const HotDogPage = () => {
   );
 };
 
-export default HotDogPage;
-
+export default PotatoesPage;

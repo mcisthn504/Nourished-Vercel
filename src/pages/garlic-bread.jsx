@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/food-info.css";
 
-import hotDogImage from "../images/hotDogImage.jpg"; // Add the path to your hot dog image
+import garlicBreadImage from "../images/starters2.jpg"; // Add the correct path to your garlic bread image
 
-const HotDogPage = () => {
+const GarlicBreadPage = () => {
   const navigate = useNavigate();
   const { favorites, toggleFavorite } = useFavorites(); // Use the context
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for dropdown menu
 
-  // Check if the hot dog is marked as favorite
-  const isFavorite = favorites.includes("hot dog");
+  // Check if garlic bread is marked as a favorite
+  const isFavorite = favorites.includes("garlic bread");
 
   const handleFavoriteClick = () => {
-    toggleFavorite("hot dog"); // Toggle the favorite status for "hot dog"
+    toggleFavorite("garlic bread"); // Toggle the favorite status for "garlic bread"
   };
 
   const handleReportMistake = () => {
@@ -58,36 +58,36 @@ const HotDogPage = () => {
       {/* Content */}
       <div className="content">
         <div className="food-container">
-          <img src={hotDogImage} alt="Hot Dog" className="food-image" />
-          <h2 className="food-name">Hot Dog</h2>
+          <img src={garlicBreadImage} alt="Garlic Bread" className="food-image" />
+          <h2 className="food-name">Garlic Bread</h2>
         </div>
         <div className="info-list">
           <div className="info-row">
             <h3>Ingredients</h3>
-            <p>Bun, Sausage, Mustard, Ketchup, Onions, Relish</p>
+            <p>Bread, Garlic, Butter, Parsley</p>
           </div>
           <div className="info-row">
             <h3>Calories</h3>
-            <p>300 kcal</p>
+            <p>200 kcal per slice</p>
           </div>
           <div className="info-row">
             <h3>Nutrients</h3>
-            <p>Protein 12g, Carbs 28g, Fat 15g</p>
+            <p>Protein 4g, Carbs 20g, Fat 10g</p>
           </div>
           <div className="info-row">
             <h3>Macros</h3>
-            <p>Protein 20%, Carbs 50%, Fat 30%</p>
+            <p>Protein 8%, Carbs 60%, Fat 32%</p>
           </div>
           <div className="info-row">
             <h3>Sodium</h3>
-            <p>700mg</p>
+            <p>250mg</p>
           </div>
           <div className="info-row">
             <h3>History</h3>
             <p>
-              The hot dog originated in Germany and was brought to the United States
-              by German immigrants. It became popular at baseball games and fairs,
-              quickly becoming an iconic fast food item.
+              Garlic bread is a popular starter originating in Italy, where it is
+              often served as an accompaniment to meals. Its rich garlic and buttery
+              flavor have made it a global favorite.
             </p>
           </div>
         </div>
@@ -96,5 +96,4 @@ const HotDogPage = () => {
   );
 };
 
-export default HotDogPage;
-
+export default GarlicBreadPage;

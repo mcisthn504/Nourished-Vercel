@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "../styles/desserts.css";
 
 import saladImage from "../images/salad.jpg";
-import grilledVegetablesImage from "../images/grilledFishImage.webp"; // Replace with an actual vegetarian image
 import pastaImage from "../images/pastaImage.jpeg";
+import tacosImage from "../images/tacosImage.png";
 import citrusImage from "../images/citrus.png"; // Placeholder for a vegetarian option
 
 const VegetarianPage = () => {
@@ -15,11 +15,17 @@ const VegetarianPage = () => {
   };
 
   const vegetarianDishes = [
-    { name: "Fresh Salad", image: saladImage },
-    { name: "Grilled Vegetables", image: grilledVegetablesImage },
-    { name: "Vegetarian Pasta", image: pastaImage },
-    { name: "Citrus Delight", image: citrusImage },
+    { name: "Fresh Salad", image: saladImage, path: "/salad" },
+    { name: "Vegetarian Pasta", image: pastaImage, path: "/pasta" },
+    { name: "Vegan Tacos", image: tacosImage, path: "/taco-vegan" },
+    { name: "Citrus Delight", image: citrusImage, path: "/citrus-cake" },
   ];
+
+  const handleNavigate = (path) => {
+    if (path) {
+      navigate(path);
+    }
+  };
 
   return (
     <div className="desserts-page">
@@ -34,7 +40,12 @@ const VegetarianPage = () => {
       {/* Vegetarian Dishes List */}
       <div className="desserts-list">
         {vegetarianDishes.map((dish, index) => (
-          <div className="dessert-item" key={index}>
+          <div
+            className="dessert-item"
+            key={index}
+            onClick={() => handleNavigate(dish.path)}
+            style={{ cursor: "pointer" }}
+          >
             <img
               src={dish.image}
               alt={dish.name}
@@ -49,3 +60,4 @@ const VegetarianPage = () => {
 };
 
 export default VegetarianPage;
+

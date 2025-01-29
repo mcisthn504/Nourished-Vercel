@@ -4,7 +4,8 @@ import "../styles/desserts.css";
 
 import grilledFishImage from "../images/grilledFishImage.webp";
 import saladImage from "../images/salad.jpg";
-import citrusImage from "../images/citrus.png"; // Placeholder for a gluten-free dessert
+import citrusImage from "../images/citrus.png"; 
+import tacosImage from "../images/tacosImage.png";
 
 const GlutenFreePage = () => {
   const navigate = useNavigate();
@@ -14,10 +15,17 @@ const GlutenFreePage = () => {
   };
 
   const glutenFreeDishes = [
-    { name: "Grilled Fish", image: grilledFishImage },
-    { name: "Fresh Salad", image: saladImage },
-    { name: "Citrus Delight", image: citrusImage },
+    { name: "Grilled Fish", image: grilledFishImage, path: "/grilled-fish" },
+    { name: "Fresh Salad", image: saladImage, path: "/salad" },
+    { name: "Citrus Delight", image: citrusImage, path: "/citrus-cake" },
+    { name: "Vegan Tacos", image: tacosImage, path: "/taco-vegan" },
   ];
+
+  const handleNavigate = (path) => {
+    if (path) {
+      navigate(path);
+    }
+  };
 
   return (
     <div className="desserts-page">
@@ -32,7 +40,12 @@ const GlutenFreePage = () => {
       {/* Gluten-Free Dishes List */}
       <div className="desserts-list">
         {glutenFreeDishes.map((dish, index) => (
-          <div className="dessert-item" key={index}>
+          <div
+            className="dessert-item"
+            key={index}
+            onClick={() => handleNavigate(dish.path)}
+            style={{ cursor: "pointer" }}
+          >
             <img
               src={dish.image}
               alt={dish.name}
@@ -47,3 +60,4 @@ const GlutenFreePage = () => {
 };
 
 export default GlutenFreePage;
+

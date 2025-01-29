@@ -13,9 +13,15 @@ const LowCaloriePage = () => {
   };
 
   const lowCalorieDishes = [
-    { name: "Fresh Salad", image: saladImage },
-    { name: "Citrus Delight", image: citrusImage },
+    { name: "Fresh Salad", image: saladImage, path: "/salad" },
+    { name: "Citrus Delight", image: citrusImage, path: "/citrus-cake" },
   ];
+
+  const handleNavigate = (path) => {
+    if (path) {
+      navigate(path);
+    }
+  };
 
   return (
     <div className="desserts-page">
@@ -30,7 +36,12 @@ const LowCaloriePage = () => {
       {/* Low-Calorie Dishes List */}
       <div className="desserts-list">
         {lowCalorieDishes.map((dish, index) => (
-          <div className="dessert-item" key={index}>
+          <div
+            className="dessert-item"
+            key={index}
+            onClick={() => handleNavigate(dish.path)}
+            style={{ cursor: "pointer" }}
+          >
             <img
               src={dish.image}
               alt={dish.name}
@@ -45,3 +56,4 @@ const LowCaloriePage = () => {
 };
 
 export default LowCaloriePage;
+

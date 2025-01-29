@@ -47,6 +47,16 @@ import VegetarianPage from "./pages/vegeterian.jsx";
 import VeganPage from "./pages/vegan.jsx";
 import GlutenFreePage from "./pages/glutenFree.jsx";
 import LowCaloriePage from "./pages/lowCalorie.jsx";
+import YogurtPage from "./pages/yogurt.jsx";
+import CitrusCakePage from "./pages/citruscake.jsx";
+import PotatoesPage from "./pages/potatoes.jsx";
+import BruschettaPage from "./pages/Bruschetta.jsx";
+import GarlicBreadPage from "./pages/garlic-bread.jsx";
+import CapreseSaladPage from "./pages/capreseSalad.jsx";
+import StuffedMushroomPage from "./pages/stuffed-mushroom.jsx";
+import GrilledChickenPage from "./pages/grilled-chicken.jsx";
+import FishFilletPage from "./pages/fish-fillet.jsx";
+import TacoVeganPage from "./pages/taco-vegan.jsx";
 
 
 
@@ -174,10 +184,90 @@ const App = () => {
               }
             />
             <Route
+              path="/taco-vegan"
+              element={
+                <Layout>
+                  <TacoVeganPage />
+                </Layout>
+              }
+            />
+            <Route
               path="/pasta"
               element={
                 <Layout>
                   <PastaPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/yogurt"
+              element={
+                <Layout>
+                  <YogurtPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/citrus-cake"
+              element={
+                <Layout>
+                  <CitrusCakePage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/potatoes"
+              element={
+                <Layout>
+                  <PotatoesPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/bruschetta"
+              element={
+                <Layout>
+                  <BruschettaPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/garlic-bread"
+              element={
+                <Layout>
+                  <GarlicBreadPage />
+                </Layout>
+              }
+            />
+             <Route
+              path="/caprese-salad"
+              element={
+                <Layout>
+                  <CapreseSaladPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/stuffed-mushrooms"
+              element={
+                <Layout>
+                  <StuffedMushroomPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/grilled-chicken"
+              element={
+                <Layout>
+                  <GrilledChickenPage />
+                </Layout>
+              }
+            />
+            <Route
+              path="/fish-fillet"
+              element={
+                <Layout>
+                  <FishFilletPage />
                 </Layout>
               }
             />

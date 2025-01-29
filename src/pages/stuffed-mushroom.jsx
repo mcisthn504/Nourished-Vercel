@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/food-info.css";
 
-import hotDogImage from "../images/hotDogImage.jpg"; // Add the path to your hot dog image
+import stuffedMushroomImage from "../images/starters4.jpg"; // Add the correct path to your stuffed mushrooms image
 
-const HotDogPage = () => {
+const StuffedMushroomPage = () => {
   const navigate = useNavigate();
   const { favorites, toggleFavorite } = useFavorites(); // Use the context
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for dropdown menu
 
-  // Check if the hot dog is marked as favorite
-  const isFavorite = favorites.includes("hot dog");
+  // Check if stuffed mushrooms are marked as a favorite
+  const isFavorite = favorites.includes("stuffed mushrooms");
 
   const handleFavoriteClick = () => {
-    toggleFavorite("hot dog"); // Toggle the favorite status for "hot dog"
+    toggleFavorite("stuffed mushrooms"); // Toggle the favorite status for "stuffed mushrooms"
   };
 
   const handleReportMistake = () => {
@@ -58,36 +58,41 @@ const HotDogPage = () => {
       {/* Content */}
       <div className="content">
         <div className="food-container">
-          <img src={hotDogImage} alt="Hot Dog" className="food-image" />
-          <h2 className="food-name">Hot Dog</h2>
+          <img
+            src={stuffedMushroomImage}
+            alt="Stuffed Mushrooms"
+            className="food-image"
+          />
+          <h2 className="food-name">Stuffed Mushrooms</h2>
         </div>
         <div className="info-list">
           <div className="info-row">
             <h3>Ingredients</h3>
-            <p>Bun, Sausage, Mustard, Ketchup, Onions, Relish</p>
+            <p>Mushrooms, Breadcrumbs, Cheese, Garlic, Parsley</p>
           </div>
           <div className="info-row">
             <h3>Calories</h3>
-            <p>300 kcal</p>
+            <p>120 kcal per serving</p>
           </div>
           <div className="info-row">
             <h3>Nutrients</h3>
-            <p>Protein 12g, Carbs 28g, Fat 15g</p>
+            <p>Protein 5g, Carbs 10g, Fat 8g</p>
           </div>
           <div className="info-row">
             <h3>Macros</h3>
-            <p>Protein 20%, Carbs 50%, Fat 30%</p>
+            <p>Protein 15%, Carbs 40%, Fat 45%</p>
           </div>
           <div className="info-row">
             <h3>Sodium</h3>
-            <p>700mg</p>
+            <p>180mg</p>
           </div>
           <div className="info-row">
             <h3>History</h3>
             <p>
-              The hot dog originated in Germany and was brought to the United States
-              by German immigrants. It became popular at baseball games and fairs,
-              quickly becoming an iconic fast food item.
+              Stuffed mushrooms are a classic appetizer that originated in
+              Europe. The filling varies by region, but they often include cheese,
+              breadcrumbs, and aromatic herbs. This versatile dish has gained
+              popularity worldwide.
             </p>
           </div>
         </div>
@@ -96,5 +101,4 @@ const HotDogPage = () => {
   );
 };
 
-export default HotDogPage;
-
+export default StuffedMushroomPage;

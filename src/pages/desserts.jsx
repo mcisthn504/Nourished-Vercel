@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/desserts.css";
 
+// Import dessert images
 import icecreamImage from "../images/icecreamImage.jpg";
 import yogurtImage from "../images/yogurt.png";
 import pancakesImage from "../images/pancakesImage.jpg";
@@ -14,12 +15,20 @@ const DessertsPage = () => {
     navigate("/categories");
   };
 
+  // Define desserts with their respective navigation paths
   const desserts = [
-    { name: "Ice Cream", image: icecreamImage },
-    { name: "Yogurt", image: yogurtImage },
-    { name: "Pancakes", image: pancakesImage },
-    { name: "Citrus Cake", image: cakeImage },
+    { name: "Ice Cream", image: icecreamImage, path: "/ice-cream" },
+    { name: "Yogurt", image: yogurtImage, path: "/yogurt" },
+    { name: "Pancakes", image: pancakesImage, path: "/pancakes" },
+    { name: "Citrus Cake", image: cakeImage, path: "/citrus-cake" }, // Add this route if needed
   ];
+
+  // Function to handle navigation on card click
+  const handleNavigate = (path) => {
+    if (path) {
+      navigate(path);
+    }
+  };
 
   return (
     <div className="desserts-page">
@@ -34,8 +43,20 @@ const DessertsPage = () => {
       {/* Desserts List */}
       <div className="desserts-list">
         {desserts.map((dessert, index) => (
-          <div className="dessert-item" key={index}>
-            <img src={dessert.image} alt={dessert.name} className="dessert-image" />
+          <div
+            className="dessert-item"
+            key={index}
+            onClick={() => handleNavigate(dessert.path)}
+            style={{
+              cursor: dessert.path ? "pointer" : "not-allowed",
+              opacity: dessert.path ? 1 : 0.6,
+            }}
+          >
+            <img
+              src={dessert.image}
+              alt={dessert.name}
+              className="dessert-image"
+            />
             <h3 className="dessert-name">{dessert.name}</h3>
           </div>
         ))}

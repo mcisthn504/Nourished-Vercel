@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/food-info.css";
 
-import hotDogImage from "../images/hotDogImage.jpg"; // Add the path to your hot dog image
+import bruschettaImage from "../images/starters1.jpg"; // Add the correct path to your bruschetta image
 
-const HotDogPage = () => {
+const BruschettaPage = () => {
   const navigate = useNavigate();
   const { favorites, toggleFavorite } = useFavorites(); // Use the context
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for dropdown menu
 
-  // Check if the hot dog is marked as favorite
-  const isFavorite = favorites.includes("hot dog");
+  // Check if bruschetta is marked as a favorite
+  const isFavorite = favorites.includes("bruschetta");
 
   const handleFavoriteClick = () => {
-    toggleFavorite("hot dog"); // Toggle the favorite status for "hot dog"
+    toggleFavorite("bruschetta"); // Toggle the favorite status for "bruschetta"
   };
 
   const handleReportMistake = () => {
@@ -58,43 +58,43 @@ const HotDogPage = () => {
       {/* Content */}
       <div className="content">
         <div className="food-container">
-          <img src={hotDogImage} alt="Hot Dog" className="food-image" />
-          <h2 className="food-name">Hot Dog</h2>
+          <img src={bruschettaImage} alt="Bruschetta" className="food-image" />
+          <h2 className="food-name">Bruschetta</h2>
         </div>
         <div className="info-list">
           <div className="info-row">
             <h3>Ingredients</h3>
-            <p>Bun, Sausage, Mustard, Ketchup, Onions, Relish</p>
+            <p>Bread, Tomatoes, Basil, Olive Oil, Garlic</p>
           </div>
           <div className="info-row">
             <h3>Calories</h3>
-            <p>300 kcal</p>
+            <p>180 kcal per serving</p>
           </div>
           <div className="info-row">
             <h3>Nutrients</h3>
-            <p>Protein 12g, Carbs 28g, Fat 15g</p>
+            <p>Protein 4g, Carbs 22g, Fat 7g</p>
           </div>
           <div className="info-row">
             <h3>Macros</h3>
-            <p>Protein 20%, Carbs 50%, Fat 30%</p>
+            <p>Protein 8%, Carbs 60%, Fat 32%</p>
           </div>
           <div className="info-row">
             <h3>Sodium</h3>
-            <p>700mg</p>
+            <p>250mg</p>
           </div>
           <div className="info-row">
             <h3>History</h3>
             <p>
-              The hot dog originated in Germany and was brought to the United States
-              by German immigrants. It became popular at baseball games and fairs,
-              quickly becoming an iconic fast food item.
+                Bruschetta originated in Italy as a way to use up stale bread by
+                toasting it and topping it with fresh ingredients. It&apos;s now a popular
+                appetizer enjoyed worldwide.
             </p>
-          </div>
+            </div>
+
         </div>
       </div>
     </div>
   );
 };
 
-export default HotDogPage;
-
+export default BruschettaPage;

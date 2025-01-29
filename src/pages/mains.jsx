@@ -6,6 +6,11 @@ import mainsImage1 from "../images/mains1.jpg";
 import mainsImage2 from "../images/mains2.jpg";
 import mainsImage3 from "../images/mains3.jpg";
 import mainsImage4 from "../images/mains4.jpg";
+import pizzaImage from "../images/pizza.jpg";
+import hamburgerImage from "../images/hamburger.jpg";
+import pizzaHamImage from "../images/pizza_ham.jpg";
+import cheeseburgerImage from "../images/cheeseburger.jpg";
+import sushiImage from "../images/sushiImage.jpg"
 
 const MainsPage = () => {
   const navigate = useNavigate();
@@ -15,11 +20,22 @@ const MainsPage = () => {
   };
 
   const mains = [
-    { name: "Grilled Chicken", image: mainsImage1 },
-    { name: "Steak", image: mainsImage2 },
-    { name: "Pasta", image: mainsImage3 },
-    { name: "Fish Fillet", image: mainsImage4 },
+    { name: "Pizza", image: pizzaImage, path: "/pizza" },
+    { name: "Hamburger", image: hamburgerImage, path: "/hamburger" },
+    { name: "Pizza with ham", image: pizzaHamImage, path: "/pizza-with-ham" },
+    { name: "Cheeseburger", image: cheeseburgerImage, path: "/cheeseburger" },
+    { name: "Grilled Chicken", image: mainsImage1, path: "/grilled-chicken" },
+    { name: "Steak", image: mainsImage2, path: "/steak" },
+    { name: "Pasta", image: mainsImage3, path: "/pasta" },
+    { name: "Fish Fillet", image: mainsImage4, path: "/fish-fillet" },
+    { name: "Sushi", image: sushiImage, path: "/sushi" },
   ];
+
+  const handleNavigate = (path) => {
+    if (path) {
+      navigate(path);
+    }
+  };
 
   return (
     <div className="mains-page">
@@ -34,7 +50,12 @@ const MainsPage = () => {
       {/* Mains List */}
       <div className="mains-list">
         {mains.map((main, index) => (
-          <div className="main-item" key={index}>
+          <div
+            className="main-item"
+            key={index}
+            onClick={() => handleNavigate(main.path)}
+            style={{ cursor: "pointer" }}
+          >
             <img src={main.image} alt={main.name} className="main-image" />
             <h3 className="main-name">{main.name}</h3>
           </div>
@@ -45,3 +66,4 @@ const MainsPage = () => {
 };
 
 export default MainsPage;
+

@@ -3,18 +3,18 @@ import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/food-info.css";
 
-import hotDogImage from "../images/hotDogImage.jpg"; // Add the path to your hot dog image
+import fishFilletImage from "../images/mains4.jpg"; // Add the correct path to your fish fillet image
 
-const HotDogPage = () => {
+const FishFilletPage = () => {
   const navigate = useNavigate();
   const { favorites, toggleFavorite } = useFavorites(); // Use the context
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State for dropdown menu
 
-  // Check if the hot dog is marked as favorite
-  const isFavorite = favorites.includes("hot dog");
+  // Check if fish fillet is marked as a favorite
+  const isFavorite = favorites.includes("fish fillet");
 
   const handleFavoriteClick = () => {
-    toggleFavorite("hot dog"); // Toggle the favorite status for "hot dog"
+    toggleFavorite("fish fillet"); // Toggle the favorite status for "fish fillet"
   };
 
   const handleReportMistake = () => {
@@ -57,37 +57,38 @@ const HotDogPage = () => {
 
       {/* Content */}
       <div className="content">
+        <p className="food-category">MAIN COURSE</p>
         <div className="food-container">
-          <img src={hotDogImage} alt="Hot Dog" className="food-image" />
-          <h2 className="food-name">Hot Dog</h2>
+          <img src={fishFilletImage} alt="Fish Fillet" className="food-image" />
+          <h2 className="food-name">Fish Fillet</h2>
         </div>
         <div className="info-list">
           <div className="info-row">
             <h3>Ingredients</h3>
-            <p>Bun, Sausage, Mustard, Ketchup, Onions, Relish</p>
+            <p>Fish Fillet, Lemon, Olive Oil, Garlic, Herbs</p>
           </div>
           <div className="info-row">
             <h3>Calories</h3>
-            <p>300 kcal</p>
+            <p>180 kcal per serving</p>
           </div>
           <div className="info-row">
             <h3>Nutrients</h3>
-            <p>Protein 12g, Carbs 28g, Fat 15g</p>
+            <p>Protein 25g, Carbs 0g, Fat 8g</p>
           </div>
           <div className="info-row">
             <h3>Macros</h3>
-            <p>Protein 20%, Carbs 50%, Fat 30%</p>
+            <p>Protein 65%, Carbs 0%, Fat 35%</p>
           </div>
           <div className="info-row">
             <h3>Sodium</h3>
-            <p>700mg</p>
+            <p>90mg</p>
           </div>
           <div className="info-row">
             <h3>History</h3>
             <p>
-              The hot dog originated in Germany and was brought to the United States
-              by German immigrants. It became popular at baseball games and fairs,
-              quickly becoming an iconic fast food item.
+              Fish fillet has been a staple in coastal cuisines for centuries,
+              prized for its delicate flavor and nutritional benefits. Grilled,
+              baked, or pan-seared, it is a versatile dish enjoyed worldwide.
             </p>
           </div>
         </div>
@@ -96,5 +97,4 @@ const HotDogPage = () => {
   );
 };
 
-export default HotDogPage;
-
+export default FishFilletPage;

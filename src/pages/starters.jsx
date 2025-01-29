@@ -15,11 +15,17 @@ const StartersPage = () => {
   };
 
   const starters = [
-    { name: "Bruschetta", image: startersImage1 },
-    { name: "Garlic Bread", image: startersImage2 },
-    { name: "Caprese Salad", image: startersImage3 },
-    { name: "Stuffed Mushrooms", image: startersImage4 },
+    { name: "Bruschetta", image: startersImage1, path: "/bruschetta" },
+    { name: "Garlic Bread", image: startersImage2, path: "/garlic-bread" },
+    { name: "Caprese Salad", image: startersImage3, path: "/caprese-salad" },
+    { name: "Stuffed Mushrooms", image: startersImage4, path: "/stuffed-mushrooms" },
   ];
+
+  const handleNavigate = (path) => {
+    if (path) {
+      navigate(path);
+    }
+  };
 
   return (
     <div className="starters-page">
@@ -34,8 +40,17 @@ const StartersPage = () => {
       {/* Starters List */}
       <div className="starters-list">
         {starters.map((starter, index) => (
-          <div className="starter-item" key={index}>
-            <img src={starter.image} alt={starter.name} className="starter-image" />
+          <div
+            className="starter-item"
+            key={index}
+            onClick={() => handleNavigate(starter.path)}
+            style={{ cursor: "pointer" }}
+          >
+            <img
+              src={starter.image}
+              alt={starter.name}
+              className="starter-image"
+            />
             <h3 className="starter-name">{starter.name}</h3>
           </div>
         ))}
@@ -45,3 +60,4 @@ const StartersPage = () => {
 };
 
 export default StartersPage;
+
