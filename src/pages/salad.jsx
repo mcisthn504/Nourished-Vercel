@@ -57,7 +57,7 @@ const SaladPage = () => {
 
       {/* Content */}
       <div className="content">
-        <p className="food-category">APPETIZER</p>
+        <p className="food-category">VEGETARIAN</p>
         <div className="food-container">
           <img src={saladImage} alt="Salad" className="food-image" />
           <h2 className="food-name">Salad</h2>

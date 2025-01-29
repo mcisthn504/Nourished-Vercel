@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "../styles/desserts.css";
 
 import saladImage from "../images/salad.jpg";
-import pastaImage from "../images/pastaImage.jpeg";
-import tacosImage from "../images/tacosImage.png";
 import citrusImage from "../images/citrus.png"; // Placeholder for a vegetarian option
 
 const VegetarianPage = () => {
@@ -16,8 +14,6 @@ const VegetarianPage = () => {
 
   const vegetarianDishes = [
     { name: "Fresh Salad", image: saladImage, path: "/salad" },
-    { name: "Vegetarian Pasta", image: pastaImage, path: "/pasta" },
-    { name: "Vegan Tacos", image: tacosImage, path: "/taco-vegan" },
     { name: "Citrus Delight", image: citrusImage, path: "/citrus-cake" },
   ];
 

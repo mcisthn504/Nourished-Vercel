@@ -4,7 +4,6 @@ import "../styles/desserts.css";
 
 import hotDogImage from "../images/hotDogImage.jpg";
 import tacosImage from "../images/tacosImage.png";
-import grilledFishImage from "../images/grilledFishImage.webp"; // Placeholder for a snack option
 
 const SnacksPage = () => {
   const navigate = useNavigate();
@@ -16,7 +15,6 @@ const SnacksPage = () => {
   const snacks = [
     { name: "Hot Dog", image: hotDogImage, path: "/hot-dog" },
     { name: "Tacos", image: tacosImage, path: "/tacos" },
-    { name: "Grilled Fish Bites", image: grilledFishImage, path: "/grilled-fish" },
   ];
 
   const handleNavigate = (path) => {

@@ -57,6 +57,7 @@ const GarlicBreadPage = () => {
 
       {/* Content */}
       <div className="content">
+      <p className="food-category">STARTERS COURSE</p>
         <div className="food-container">
           <img src={garlicBreadImage} alt="Garlic Bread" className="food-image" />
           <h2 className="food-name">Garlic Bread</h2>

@@ -5,8 +5,6 @@ import "../styles/desserts.css";
 // Import dessert images
 import icecreamImage from "../images/icecreamImage.jpg";
 import yogurtImage from "../images/yogurt.png";
-import pancakesImage from "../images/pancakesImage.jpg";
-import cakeImage from "../images/citrus.png"; // Assuming this is for a dessert-like cake
 
 const DessertsPage = () => {
   const navigate = useNavigate();
@@ -19,8 +17,6 @@ const DessertsPage = () => {
   const desserts = [
     { name: "Ice Cream", image: icecreamImage, path: "/ice-cream" },
     { name: "Yogurt", image: yogurtImage, path: "/yogurt" },
-    { name: "Pancakes", image: pancakesImage, path: "/pancakes" },
-    { name: "Citrus Cake", image: cakeImage, path: "/citrus-cake" }, // Add this route if needed
   ];
 
   // Function to handle navigation on card click

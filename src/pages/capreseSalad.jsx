@@ -57,6 +57,7 @@ const CapreseSaladPage = () => {
 
       {/* Content */}
       <div className="content">
+      <p className="food-category">STARTERS COURSE</p>
         <div className="food-container">
           <img src={capreseSaladImage} alt="Caprese Salad" className="food-image" />
           <h2 className="food-name">Caprese Salad</h2>

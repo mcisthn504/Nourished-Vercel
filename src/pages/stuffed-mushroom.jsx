@@ -57,6 +57,7 @@ const StuffedMushroomPage = () => {
 
       {/* Content */}
       <div className="content">
+      <p className="food-category">STARTERS COURSE</p>
         <div className="food-container">
           <img
             src={stuffedMushroomImage}

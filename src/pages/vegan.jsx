@@ -2,9 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/desserts.css";
 
-import saladImage from "../images/salad.jpg";
 import tacosImage from "../images/tacosImage.png";
-import citrusImage from "../images/citrus.png"; // Placeholder for a vegan dessert
 
 const VeganPage = () => {
   const navigate = useNavigate();
@@ -14,9 +12,7 @@ const VeganPage = () => {
   };
 
   const veganDishes = [
-    { name: "Fresh Salad", image: saladImage, path: "/salad" },
     { name: "Vegan Tacos", image: tacosImage, path: "/taco-vegan" },
-    { name: "Citrus Delight", image: citrusImage, path: "/citrus-cake" },
   ];
 
   const handleNavigate = (path) => {

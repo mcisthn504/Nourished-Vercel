@@ -4,9 +4,7 @@ import "../styles/desserts.css"; // Update this if the file path or style name d
 
 // Import appetizer images
 import wingsImage from "../images/chickenWingsImage.jpg";
-import saladImage from "../images/salad.jpg";
 import friesImage from "../images/potatoes.png"; // Assuming this is for fries or roasted potatoes
-import friedRiceImage from "../images/friedRiceImage.jpg";
 
 const AppetizersPage = () => {
   const navigate = useNavigate();
@@ -18,9 +16,7 @@ const AppetizersPage = () => {
   // Define the appetizers array with their navigation paths
   const appetizers = [
     { name: "Chicken Wings", image: wingsImage, path: "/chicken-wings" },
-    { name: "Salad", image: saladImage, path: "/salad" },
     { name: "Potatoes", image: friesImage, path: "/potatoes" }, 
-    { name: "Fried Rice", image: friedRiceImage, path: "/fried-rice" },
   ];
 
   // Function to handle navigation on card click

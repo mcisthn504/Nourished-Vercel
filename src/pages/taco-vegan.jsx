@@ -57,6 +57,7 @@ const TacoVeganPage = () => {
 
       {/* Content */}
       <div className="content">
+      <p className="food-category">VEGAN</p>
         <div className="food-container">
           <img src={tacoImage} alt="Vegan Taco" className="food-image" />
           <h2 className="food-name">Vegan Taco</h2>

@@ -57,6 +57,7 @@ const BruschettaPage = () => {
 
       {/* Content */}
       <div className="content">
+      <p className="food-category">STARTERS COURSE</p>
         <div className="food-container">
           <img src={bruschettaImage} alt="Bruschetta" className="food-image" />
           <h2 className="food-name">Bruschetta</h2>

@@ -57,6 +57,7 @@ const GrilledChickenPage = () => {
 
       {/* Content */}
       <div className="content">
+      <p className="food-category">MAIN COURSE</p>
         <div className="food-container">
           <img
             src={grilledChickenImage}

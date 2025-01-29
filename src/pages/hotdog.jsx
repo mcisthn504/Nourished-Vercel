@@ -57,6 +57,7 @@ const HotDogPage = () => {
 
       {/* Content */}
       <div className="content">
+      <p className="food-category">SNACK</p>
         <div className="food-container">
           <img src={hotDogImage} alt="Hot Dog" className="food-image" />
           <h2 className="food-name">Hot Dog</h2>
