@@ -34,7 +34,7 @@ const HomePage = () => {
 
   useEffect(() => {
     // Check if the user has already completed the challenge                     // WARNING!!
-    const completed = localStorage.getItem("hasCompletedChallenge") === "false"; //CHANGE TO "true" in final version, should be false only in testing
+    const completed = localStorage.getItem("hasCompletedChallenge"); //CHANGE TO "true" in final version, should be false only in testing
     setHasCompletedChallenge(completed);
   }, []);
 
@@ -44,8 +44,8 @@ const HomePage = () => {
       setPopupVisible(true);
     } else {
       // Mark challenge as completed and store in localStorage
-      setHasCompletedChallenge(true);
-      localStorage.setItem("hasCompletedChallenge", "true");
+      //setHasCompletedChallenge(true);
+      //localStorage.setItem("hasCompletedChallenge", "true");
       navigate("/daily-challenge");
     }
   };

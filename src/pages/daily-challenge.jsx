@@ -71,9 +71,11 @@ const DailyChallenge = () => {
   const [currentQuiz, setCurrentQuiz] = useState(null);
 
   const closePopup = () => {
-    setShowPopup(false); // Close the popup
-    navigate("/"); // Redirect to home after closing the popup
+    setShowPopup(false); 
+    localStorage.setItem("hasCompletedChallenge", "true"); // Mark challenge as completed
+    navigate("/"); // Redirect to home
   };
+  
 
   useEffect(() => {
     // Get quiz from the data
