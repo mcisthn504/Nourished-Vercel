@@ -2,8 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/desserts.css";
 
-import saladImage from "../images/salad.jpg";
-import citrusImage from "../images/citrus.png"; // Placeholder for a low-calorie dessert
+import pancakesImage from "../images/pancakesImage.jpg";
 
 const LowCaloriePage = () => {
   const navigate = useNavigate();
@@ -13,8 +12,7 @@ const LowCaloriePage = () => {
   };
 
   const lowCalorieDishes = [
-    { name: "Fresh Salad", image: saladImage, path: "/salad" },
-    { name: "Citrus Delight", image: citrusImage, path: "/citrus-cake" },
+    { name: "pancakes", image: pancakesImage, path: "/pancakes" },
   ];
 
   const handleNavigate = (path) => {

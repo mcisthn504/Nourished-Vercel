@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/food-info.css";
 
-import pancakesImage from "../images/pancakesImage.jpg"; // Add the path to your pancakes image
+import pancakesImage from "../images/pancakesImage.jpg"; // Update if necessary
 
 const PancakesPage = () => {
   const navigate = useNavigate();
@@ -57,38 +57,45 @@ const PancakesPage = () => {
 
       {/* Content */}
       <div className="content">
-        <p className="food-category">BREAKFAST</p>
+        <p className="food-category">LOW CALORIE</p>
         <div className="food-container">
-          <img src={pancakesImage} alt="Pancakes" className="food-image" />
-          <h2 className="food-name">Pancakes</h2>
+          <img
+            src={pancakesImage}
+            alt="Low-Calorie Pancakes"
+            className="food-image"
+          />
+          <h2 className="food-name">Low-Calorie Pancakes</h2>
         </div>
         <div className="info-list">
           <div className="info-row">
             <h3>Ingredients</h3>
-            <p>Flour, Eggs, Milk, Butter, Sugar</p>
+            <p>
+              Whole Wheat Flour, Egg Whites, Low-Fat Milk, Sugar Substitute
+              (e.g., Stevia), Baking Powder
+            </p>
           </div>
           <div className="info-row">
             <h3>Calories</h3>
-            <p>150 kcal per pancake</p>
+            <p>80 kcal per pancake</p>
           </div>
           <div className="info-row">
             <h3>Nutrients</h3>
-            <p>Protein 4g, Carbs 20g, Fat 5g</p>
+            <p>Protein 5g, Carbs 12g, Fat 1g</p>
           </div>
           <div className="info-row">
             <h3>Macros</h3>
-            <p>Protein 10%, Carbs 70%, Fat 20%</p>
+            <p>Protein 25%, Carbs 60%, Fat 15%</p>
           </div>
           <div className="info-row">
             <h3>Sodium</h3>
-            <p>200mg</p>
+            <p>150mg</p>
           </div>
           <div className="info-row">
             <h3>History</h3>
             <p>
-              Pancakes have been a popular breakfast item across cultures for
-              centuries, with ancient Greeks and Romans enjoying early versions of
-              this dish.
+              Pancakes have been a staple of breakfast around the world for
+              centuries. This lighter version swaps in lower-fat and lower-sugar
+              ingredients without sacrificing flavor.
             </p>
           </div>
         </div>

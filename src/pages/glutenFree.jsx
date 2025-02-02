@@ -2,10 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/desserts.css";
 
-import grilledFishImage from "../images/grilledFishImage.webp";
-import saladImage from "../images/salad.jpg";
-import citrusImage from "../images/citrus.png"; 
-import tacosImage from "../images/tacosImage.png";
+import friedRiceImage from "../images/friedRiceImage.jpg";
+import mainsImage4 from "../images/mains4.jpg";
 
 const GlutenFreePage = () => {
   const navigate = useNavigate();
@@ -15,10 +13,8 @@ const GlutenFreePage = () => {
   };
 
   const glutenFreeDishes = [
-    { name: "Grilled Fish", image: grilledFishImage, path: "/grilled-fish" },
-    { name: "Fresh Salad", image: saladImage, path: "/salad" },
-    { name: "Citrus Delight", image: citrusImage, path: "/citrus-cake" },
-    { name: "Vegan Tacos", image: tacosImage, path: "/taco-vegan" },
+    {name: "fried Rice", image: friedRiceImage, path: "/fried-rice"},
+    { name: "Fish Fillet", image: mainsImage4, path: "/fish-fillet" },
   ];
 
   const handleNavigate = (path) => {

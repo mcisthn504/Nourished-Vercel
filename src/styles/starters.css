@@ -1,7 +1,9 @@
 .mains-page {
-    font-family: Arial, sans-serif;
-    background-color: #fff5e1;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #fff5e1;
+  /* Add bottom padding here */
+  padding-bottom: 80px;
+}
   
   .header {
     display: flex;
@@ -55,9 +57,11 @@
     color: #333;
   }
   
-.starters-page {
+  .starters-page {
     font-family: Arial, sans-serif;
     background-color: #fff5e1;
+    /* Add bottom padding here as well */
+    padding-bottom: 80px;
   }
   
   .starters-list {

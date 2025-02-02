@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/food-info.css";
 
-import friedRiceImage from "../images/friedRiceImage.jpg"; // Add the path to your fried rice image
+import friedRiceImage from "../images/friedRiceImage.jpg"; // Path to your fried rice image
 
 const FriedRicePage = () => {
   const navigate = useNavigate();
@@ -57,15 +57,19 @@ const FriedRicePage = () => {
 
       {/* Content */}
       <div className="content">
-        <p className="food-category">MAIN COURSE</p>
+        <p className="food-category">GLUTEN FREE</p>
         <div className="food-container">
-          <img src={friedRiceImage} alt="Fried Rice" className="food-image" />
-          <h2 className="food-name">Fried Rice</h2>
+          <img
+            src={friedRiceImage}
+            alt="Gluten-Free Fried Rice"
+            className="food-image"
+          />
+          <h2 className="food-name">Gluten-Free Fried Rice</h2>
         </div>
         <div className="info-list">
           <div className="info-row">
             <h3>Ingredients</h3>
-            <p>Rice, Vegetables, Soy Sauce, Egg, Chicken</p>
+            <p>Rice, Vegetables, Gluten-Free Soy Sauce, Egg, Chicken</p>
           </div>
           <div className="info-row">
             <h3>Calories</h3>

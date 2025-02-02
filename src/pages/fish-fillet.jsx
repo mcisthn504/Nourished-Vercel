@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useFavorites } from "../contexts/FavoritesContext"; // Import the Favorites context
 import "../styles/food-info.css";
 
-import fishFilletImage from "../images/mains4.jpg"; // Add the correct path to your fish fillet image
+import fishFilletImage from "../images/mains4.jpg"; // Correct path to your fish fillet image
 
 const FishFilletPage = () => {
   const navigate = useNavigate();
@@ -57,10 +57,14 @@ const FishFilletPage = () => {
 
       {/* Content */}
       <div className="content">
-        <p className="food-category">MAIN COURSE</p>
+        <p className="food-category">GLUTEN FREE</p>
         <div className="food-container">
-          <img src={fishFilletImage} alt="Fish Fillet" className="food-image" />
-          <h2 className="food-name">Fish Fillet</h2>
+          <img
+            src={fishFilletImage}
+            alt="Gluten-Free Fish Fillet"
+            className="food-image"
+          />
+          <h2 className="food-name">Gluten-Free Fish Fillet</h2>
         </div>
         <div className="info-list">
           <div className="info-row">

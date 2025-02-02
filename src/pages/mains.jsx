@@ -5,12 +5,13 @@ import "../styles/starters.css";
 import mainsImage1 from "../images/mains1.jpg";
 import mainsImage2 from "../images/mains2.jpg";
 import mainsImage3 from "../images/mains3.jpg";
-import mainsImage4 from "../images/mains4.jpg";
 import pizzaImage from "../images/pizza.jpg";
 import hamburgerImage from "../images/hamburger.jpg";
 import pizzaHamImage from "../images/pizza_ham.jpg";
 import cheeseburgerImage from "../images/cheeseburger.jpg";
-import sushiImage from "../images/sushiImage.jpg"
+import sushiImage from "../images/sushiImage.jpg";
+import grilledFish from "../images/grilledFishImage.webp"
+
 
 const MainsPage = () => {
   const navigate = useNavigate();
@@ -27,8 +28,8 @@ const MainsPage = () => {
     { name: "Grilled Chicken", image: mainsImage1, path: "/grilled-chicken" },
     { name: "Steak", image: mainsImage2, path: "/steak" },
     { name: "Pasta", image: mainsImage3, path: "/pasta" },
-    { name: "Fish Fillet", image: mainsImage4, path: "/fish-fillet" },
     { name: "Sushi", image: sushiImage, path: "/sushi" },
+    { name: "Grilled Fish", image: grilledFish, path: "/grilled-fish" },
   ];
 
   const handleNavigate = (path) => {
